@@ -136,6 +136,7 @@
           console.log(caption);
           let image = lastImage;
           socket.emit('upload-post', caption, image)
+          window.location.replace('/feed');
           return false;
       }
     </script>
