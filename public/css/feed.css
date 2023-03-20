@@ -1,3 +1,26 @@
 body {
     background-color: gray;
 }
+
+.post-container {
+    display: grid;
+    place-items: center;
+    background-color: white;
+    width: 20%;
+    text-align: center;
+    margin: 10px;
+    position: relative;
+    left: 40%
+    
+}
+
+.post-image{
+    display: flex;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 2%;
+    border-color: black;
+}
+
+
+

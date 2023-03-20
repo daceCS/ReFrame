@@ -23,11 +23,11 @@
           socket.on('post-to-feed', (caption, image)=>{
 
               let feed = $('#feed');
-              let postContainer = `<div id="post-${postIndex}" class="feed-post">
-                                    <fieldset>
-                                      <img src="${image}" id="post-image-${postIndex}" height="300" width="300">
+              let postContainer = `<div id="post-${postIndex}" class="post-container">
+                                    
+                                      <img src="${image}" id="post-image-${postIndex}" height="300" width="300" class="post-image">
                                       <p id="post-caption-${postIndex}">${caption}</p>
-                                    </fieldset>
+                                    
                                   </div>`
                
     
@@ -42,11 +42,11 @@
               for(i = 0; i<allPost.length; i++){
                 let image = allPost[i].image;
                 let caption = allPost[i].caption;
-                let postContainer2 = `<div id="post-${postIndex}" class="feed-post">
-                                    <fieldset>
-                                      <img src="${image}" id="post-image-${postIndex}" height="300" width="300">
+                let postContainer2 = `<div id="post-${postIndex}" class="post-container">
+                                    
+                                      <img src="${image}" id="post-image-${postIndex}" height="300" width="300" class="post-image">
                                       <p id="post-caption-${postIndex}">${caption}</p>
-                                    </fieldset>
+                                    
                                   </div>`
                 feed.prepend(postContainer2);
                 postIndex++;
