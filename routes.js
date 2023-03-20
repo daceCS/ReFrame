@@ -35,9 +35,11 @@ router.post('/fileupload', function(req, res) {
         var oldpath = files.image.path;
         var newpath = __dirname + '/public/images/' + files.image.name;
         lastImg = files.image.name;
+       
 
         
         mv(oldpath, newpath, function(err) {
+           
 
             res.json({
                 name: files.image.name

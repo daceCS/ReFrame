@@ -18,7 +18,7 @@
         const socket = io();
           postIndex = 0;
           socket.on('post-to-feed', (caption, image)=>{
-    
+
               let feed = $('#feed');
               let postContainer = `<div id="post-${postIndex}">
                                     <fieldset>
