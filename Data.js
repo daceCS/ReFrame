@@ -4,4 +4,5 @@ let Data = function(caption, image) {
     this.image = image;
 }
 
+
 module.exports = Data;

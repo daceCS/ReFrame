@@ -8,6 +8,10 @@ let lastImg;
 const myDatabase = require('./myDatabase');
 let db = new myDatabase();
 const Data = require('./Data');
+const Account = require('./Account');
+
+let userAccount;
+let accountActive = false;
 
 
 // standard ajax routes
@@ -51,8 +55,26 @@ router.post('/fileupload', function(req, res) {
 // sends all post back to the client feed
 router.get("/populate-feed", (req, res) => {
     res.json({
-        allPost: db.getData()
+        allPost: db.getData(0)
     })
+})
+router.get('/login', (req, res) =>{
+    res.sendFile(path.resolve(__dirname + "/public/views/login.html"));
+})
+router.get('/create-account', (req, res) =>{
+    res.sendFile(path.resolve(__dirname + "/public/views/createAccount.html"));
+})
+router.get('/get-current-users', (req, res) =>{
+    res.json({allAccounts: db.getData(1)});
+})
+router.post('/handle-new-account', (req, res)=>{
+    let username = req.body.username;
+    let password = req.body.password;
+    let accObj = new Account(username, password)
+    db.initAccount(accObj);
+    userAccount = accObj;
+    accountActive = true;
+
 })
 
 // exports express routes and myDatabase instance
