@@ -1,3 +1,24 @@
 body {
-    background-color: gray;
+    background-color: rgb(255,233,193);
+}
+
+
+#caption{
+    width:60%;
+    length:5%;
+}
+
+input[type="file"]::file-selector-button {
+   font-weight: initial;
+  color: rgb(255, 255, 255);
+  border: 2px solid #420505;
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: #a53f3f;
+  transition: 1s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #420505;
+  border: 2px solid #742e2e;
 }
