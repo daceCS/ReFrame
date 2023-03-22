@@ -15,32 +15,35 @@
 <body>
     <hr>
     <form id="fileupload">
-        <fieldset>
-            <legend>Create Post</legend>
-            <div>
-                <fieldset>
-                    <legend>Post Data</legend>
-                    <label for="caption">Title:</label>
-                    <input id="caption" type="text" name="caption" oninput="changePreviewCaption()" maxlength="40">
-                    <input id="uploader" type="file" name="image" onchange="img()">
-                </fieldset>
-                <input type="reset" name="reset" value="Clear Form">
-                <input id="createButton" type="button" value="Create Post" />
-        </fieldset>
+        
+            
+            <div>  
+                <input id="caption" type="text" name="caption" oninput="changePreviewCaption()" maxlength="40" placeholder="Title">
+                <input id="uploader" type="file" name="image" onchange="img()">
+                <br>
+                
+                <input id="createButton" type="button" value="Post" />
+       
     </form>
 
-    <div id="post-preview">
-        <fieldset>
-            <legend>Post Preview</legend>
-            <div id="post-preview-image">
-                <img id="preview-image" src="" alt="" height="300" width="300">
-            </div>
-            <div id="post-preview-caption">
-                <p id="preview-caption"></p>
-            </div>
+    
 
-        </fieldset>
-    </div>
+    <fieldset>
+      <legend>Post Preview</legend>
+      <div id="post-preview">
+        
+        
+        <div id="post-preview-image">
+            <img id="preview-image" src="" alt="" height="auto" width="80%">
+        </div>
+        <div id="post-preview-caption">
+          <p id="preview-caption"></p>
+      </div>
+        
+
+    
+</div>
+    </fieldset>
 
     <script>
         
