@@ -83,12 +83,6 @@
       $(document).ready(function () {
         console.log('Ready');
         $("#createButton").click(createClicked);
-        
-        
-      
-        
-      
-      
       });
       
       function img() {
@@ -138,8 +132,11 @@
     
         function createClicked() {
           let caption = $("#caption").val();
-          console.log(caption);
           let image = lastImage;
+          if(image == null){
+            alert("Choose an Image to Post")
+            return;
+          }
           socket.emit('upload-post', caption, image)
           window.location.replace('/feed');
           return false;
