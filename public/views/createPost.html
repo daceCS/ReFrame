@@ -12,13 +12,12 @@
     <link rel="stylesheet" href="../css/createNewPost.css">
 </head>
 
-<body>
-    <hr>
+<body> 
     <form id="fileupload">
         
             
             <div>  
-                <input id="caption" type="text" name="caption" oninput="changePreviewCaption()" maxlength="40" placeholder="Title">
+                <input id="caption" type="text" name="caption" oninput="changePreviewCaption()" maxlength="50" placeholder="Title" style="font-family: Garamond;">
                 <input id="uploader" type="file" name="image" onchange="img()">
                 <br>
                 
@@ -27,16 +26,25 @@
     </form>
 
     
-
-    <fieldset>
+    <div class="legend1"></div>
+    <fieldset id="F1##">
+      
       <legend>Post Preview</legend>
       <div id="post-preview">
         
         
         <div id="post-preview-image">
+
             <img id="preview-image" src="" alt="" height="auto" width="80%">
         </div>
         <div id="post-preview-caption">
+          <style>
+            P{
+              border-style: inset none none;
+              border-width: 3px;
+              border-color: rgb(244, 206, 116);
+            }
+          </style>
           <p id="preview-caption"></p>
       </div>
         
