@@ -18,6 +18,7 @@
     <div id="feed"></div>
 
     <script>
+       
         const socket = io();
           postIndex = 0;
           socket.on('post-to-feed', (caption, image)=>{

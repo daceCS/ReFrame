@@ -1,3 +1,6 @@
+let clientAccount; 
+let clientAccountServerIndex;
+
 function createAccount(){
     let username = $("username").val();
     let password = $("password").val();
@@ -24,19 +27,17 @@ function createAccount(){
         dataType: "json"
       });
       function initAccount(){
-        $.ajax({
-            url: '/handle-new-account',
-            type: 'POST',
-            data: {username: username, 
-                password: password}, 
-            processData: false, // These two are needed to prevent JQuery from processing the form data
-            contentType: false,
-            mimeType: 'multipart/form-data',
-            dataType: 'json', // Without this, the server's response will be a string instead of a JSON object
-            success: changeWindow
-          });
+        $.get('/handle-new-account', (userAccount, userServerIndex)=>{
+            clientAccount = userAccount; 
+            clientAccountServerIndex = userServerIndex;
+        })
       }
       function changeWindow(){
         window.location.replace('/feed');
       }
+}
+
+module.exports = {
+    clientAccount: clientAccount, 
+    clientAccountServerIndex: clientAccountServerIndex
 }

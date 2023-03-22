@@ -10,8 +10,7 @@ let db = new myDatabase();
 const Data = require('./Data');
 const Account = require('./Account');
 
-let userAccount;
-let accountActive = false;
+
 
 
 // standard ajax routes
@@ -71,9 +70,9 @@ router.post('/handle-new-account', (req, res)=>{
     let username = req.body.username;
     let password = req.body.password;
     let accObj = new Account(username, password)
-    db.initAccount(accObj);
-    userAccount = accObj;
-    accountActive = true;
+    let val = db.initAccount(accObj);
+    
+    res.json({userAccount: accObj, userServerIndex: val});
 
 })
 

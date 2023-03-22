@@ -26,6 +26,7 @@ myDatabase.prototype.postData = function(_data) {
 myDatabase.prototype.initAccount = function(accObj) {
   this.accounts[accountIndex] = accObj;
   accountIndex++;
+  return accountIndex-1;
 }
 
 myDatabase.prototype.getData = function(type) { // pass in type parameter to chose which data type is wanted
