@@ -1,24 +1,27 @@
 body {
-    background-color: gray;
+    background-color: #F4C095;
 }
 
 .post-container {
     display: grid;
-    place-items: center;
-    background-color: white;
+    place-items:center;
+    background-color: #679289;
     width: 500px;
     height: 500px;
-    text-align: center;
     margin: 10px;
-    position: relative;
-    left: 40%;
-    font-family: 'Courier New', Courier, monospace;
+    position: center;
+    left: 30%;
+    font-family: Garamond;
+    font-size: large;
 }
 
 .post-image{
     
-    border-width: 2%;
-    border-color: black;
+    
+    border-style: inset;
+    border-color: #071E22;
+    border-width: "3%";
+    border-color: #1D7874;
     
     
 }
@@ -27,14 +30,14 @@ body {
     display: block;
     width: 115px;
     height: 25px;
-    background: #522db8;
+    background: #EE2E31;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
     color: white;
     font-weight: bold;
     line-height: 25px;
-    position: sticky;
+    position: left;
 }
 
 

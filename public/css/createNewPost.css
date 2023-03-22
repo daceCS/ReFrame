@@ -9,10 +9,24 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+#createButton{
+  font-weight: initial;
+  color: rgb(255, 255, 255);
+  font-family: 'Courier New', Courier, monospace;
+  border: 2px solid #420505;
+  background-color: #a53f3f;
+}
+
+#createButton:hover{
+  background-color: #660808;
+  border: 2px solid #ac4747;
+}
+
 input[type="file"]::file-selector-button {
    font-weight: initial;
   color: rgb(255, 255, 255);
   border: 2px solid #420505;
+  font-family: Garamond;
   padding: 0.2em 0.4em;
   border-radius: 0.2em;
   background-color: #a53f3f;
@@ -20,19 +34,46 @@ input[type="file"]::file-selector-button {
 }
 
 input[type="file"]::file-selector-button:hover {
-  background-color: #420505;
-  border: 2px solid #742e2e;
+  background-color: #660808;
+  border: 2px solid #ac4747;
+  
 }
 
 #post-preview {
   display: grid;
     place-items: center;
-    background-color: white;
+    background-color: rgb(253, 252, 252);
     width: 500px;
     height: 500px;
     text-align: center;
     margin: 10px;
+    border: 4px solid #a53f3f;
     position: relative;
-    left: 37%;
-    font-family: 'Courier New', Courier, monospace;
+    left: 35%;
+    font-family: Garamond;
+}
+fieldset
+{
+  background-color:#f4ce74;
+
+  max-width:100%;
+  padding:25px;	
+  border-style: inset none none;
+  border-color:#a53f3f;
+}
+.legend1
+{
+  margin-bottom:0px;
+  margin-left:16px;
+}
+
+legend {
+  color: #000000;
+  font-size: larger;
+  font-family: Garamond;
+  padding: 3px 6px;
+}
+
+input {
+  margin: 0.4rem;
 }
