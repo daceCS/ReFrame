@@ -4,8 +4,8 @@ body {
 
 
 #caption{
-    width:30%;
-    length:5%;
+    width:20%;
+    height: 20px;
 }
 
 input[type="file"]::file-selector-button {
