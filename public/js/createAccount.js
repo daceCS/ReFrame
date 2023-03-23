@@ -27,8 +27,8 @@ function createAccount(){
         dataType: "json"
       });
       function initAccount(){
-        $.get('/handle-new-account', (userAccount, userServerIndex)=>{
-            clientAccount = userAccount; 
+        $.post('/handle-new-account', {username: username, password: password}, (userAccount, userServerIndex)=>{
+            clientAccount = userAccount;
             clientAccountServerIndex = userServerIndex;
         })
       }
@@ -37,7 +37,3 @@ function createAccount(){
       }
 }
 
-module.exports = {
-    clientAccount: clientAccount, 
-    clientAccountServerIndex: clientAccountServerIndex
-}

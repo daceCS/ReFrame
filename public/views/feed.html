@@ -8,6 +8,7 @@
     </style>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src='/socket.io/socket.io.js'></script>
+    <script src="../js/createAccount.js"></script>
 
     <link rel="stylesheet" href="../css/feed.css">
 </head>
@@ -15,7 +16,7 @@
 <body>
     
     <aside>
-      <div>
+      <div class="menu-div">
         <nav class="menu">
           <a href="/createPost" id="new-post-link">Create Post</a>
         </nav>
@@ -27,6 +28,7 @@
 
     <script>
         //let accountSystem = require('./createAccount')
+        
         const socket = io();
           postIndex = 0;
           socket.on('post-to-feed', (caption, image)=>{
@@ -67,6 +69,7 @@
             window.location.replace('/createPost');
           }
           $(document).ready(()=>{
+            
             populateFeed();
           })
     </script>

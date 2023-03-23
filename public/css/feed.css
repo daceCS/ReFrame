@@ -1,5 +1,13 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
 body {
-    background-color: #F4C095;
+    background-color: gray;
+    padding: 0;
+    
+    
 }
 
 .post-container {
@@ -23,29 +31,45 @@ body {
     border-color: #1D7874;
     
     
+    
 }
 
-#new-post-link {
-    display: block;
-    width: 115px;
-    height: 25px;
-    background: #EE2E31;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    line-height: 25px;
-    position: left;
-}
 
 #feed {
+    
     background-color: black;
     width: 50%;
     margin-left: auto;
     margin-right:auto;
     align-items: center;
+    
+    
+
 }
+
+.menu{
+    background-color: black;
+    width: 10rem;
+    height: 100vh;
+    margin: 0;
+    position: fixed;
+}
+#new-post-link {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: rgba(24, 67, 92, 0.671);
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+
+
 
 
 
