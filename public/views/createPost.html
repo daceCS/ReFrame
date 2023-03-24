@@ -15,16 +15,15 @@
 <body> 
     <form id="fileupload">
         
-            
+    <fieldset id ="topBox">
+  
             <div>  
                 <input id="caption" type="text" name="caption" oninput="changePreviewCaption()" maxlength="50" placeholder="Title" style="font-family: Garamond;">
-                <input id="uploader" type="file" name="image" onchange="img()">
-                <br>
-                
+                <input id="uploader" type="file" name="image" onchange="img()" />
                 <input id="createButton" type="button" value="Post" />
-       
+            </div>
     </form>
-
+  </fieldset>
     
     <div class="legend1"></div>
     <fieldset id="F1##">
@@ -41,8 +40,8 @@
           <style>
             P{
               border-style: inset none none;
-              border-width: 3px;
-              border-color: rgb(244, 206, 116);
+              border-width: 20px;
+              border-color: rgb(61, 89, 131);
             }
           </style>
           <p id="preview-caption"></p>
@@ -53,7 +52,13 @@
 </div>
     </fieldset>
 
-    <script src="../js/createPost.js"></script>
+    <script src="../js/createPost.js">
+
+    function gfg_Run() {
+                $('input').addClass('removeValue');
+                el_down.innerHTML = "Value has been removed.";
+            }
+    </script>
 
 </body>
 
