@@ -6,7 +6,7 @@
 body {
     background-color: gray;
     padding: 0;
-    
+    overflow-x: hidden;
     
 }
 
@@ -15,9 +15,10 @@ body {
     place-items:center;
     background-color: #679289;
     width: 500px;
-    height: 500px;
-    margin: 10px auto;
+    height: 450px;
+    margin: 30px auto;
     font-family: Garamond;
+    padding: 10px;
     font-size: large;
 }
 
@@ -29,6 +30,9 @@ body {
     border-color: #071E22;
     border-width: "3%";
     border-color: #1D7874;
+    position: relative;
+    left: 4.5%;
+    top: 1%;
     
     
     
@@ -39,6 +43,7 @@ body {
     
     background-color: black;
     width: 50%;
+    margin: 90px auto;
     margin-left: auto;
     margin-right:auto;
     align-items: center;
@@ -53,6 +58,7 @@ body {
     height: 100vh;
     margin: 0;
     position: fixed;
+    top: 0;
 }
 #new-post-link {
     display: block;
@@ -60,12 +66,14 @@ body {
     height: 25px;
     background: rgba(24, 67, 92, 0.671);
     padding: 10px;
-    margin: 0 auto;
     text-align: center;
     border-radius: 5px;
     color: white;
     font-weight: bold;
     line-height: 25px;
+    position: absolute;
+    top: 100px;
+    right: 11px;
 }
 
 

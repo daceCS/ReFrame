@@ -9,12 +9,11 @@
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src='/socket.io/socket.io.js'></script>
     <script src="../js/createAccount.js"></script>
-
     <link rel="stylesheet" href="../css/feed.css">
+    
 </head>
 
 <body>
-    
     <aside>
       <div class="menu-div">
         <nav class="menu">
@@ -35,9 +34,9 @@
 
               let feed = $('#feed');
               let postContainer = `<div id="post-${postIndex}" class="post-container">
-                                     
-                                      <img src="${image}" id="post-image-${postIndex}" height="auto" width="80%" class="post-image">
                                       <p id="post-caption-${postIndex}">${caption}</p>
+                                      <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%" class="post-image">
+                                      
                                     
                                   </div>`
                
@@ -54,9 +53,9 @@
                 let image = allPost[i].image;
                 let caption = allPost[i].caption;
                 let postContainer2 = `<div id="post-${postIndex}" class="post-container">
-                                      
-                                      <img src="${image}" id="post-image-${postIndex}" height="auto" width="80%"  class="post-image">
                                       <p id="post-caption-${postIndex}">${caption}</p>
+                                      <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%"  class="post-image">
+                                      
                                       
                                     
                                   </div>`
@@ -72,6 +71,7 @@
             
             populateFeed();
           })
+          
     </script>
 
 </body>
