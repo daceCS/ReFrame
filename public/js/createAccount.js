@@ -2,6 +2,7 @@ let clientAccount;
 let clientAccountServerIndex;
 
 function createAccount(){
+    console.log("yo")
     let username = $("username").val();
     let password = $("password").val();
     $.ajax({
@@ -30,6 +31,7 @@ function createAccount(){
         $.post('/handle-new-account', {username: username, password: password}, (userAccount, userServerIndex)=>{
             clientAccount = userAccount;
             clientAccountServerIndex = userServerIndex;
+            changeWindow();
         })
       }
       function changeWindow(){

@@ -2,6 +2,9 @@
     margin:0;
     padding: 0;
 }
+::root{
+    --post-container-height: 650px
+}
 
 body {
     background-color: gray;
@@ -10,35 +13,54 @@ body {
     
 }
 
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background: hsl(120 50% 50% / 1);
+}
+::-webkit-scrollbar-thumb{
+    background: hsl(120 100% 20% / 1);
+}
+
 .post-container {
     display: grid;
     place-items:center;
     background-color: #679289;
     width: 500px;
-    height: 650px;
+    max-height: 650px;
     margin: 30px auto;
+    overflow-x: hidden;
     font-family: Garamond;
-    padding: 10px;
     font-size: large;
 }
 
 
-.post-image{
-    
-    
-    border-style: inset;
-    border-color: #071E22;
-    border-width: "3%";
-    border-color: #1D7874;
-    position: relative;
-    left: 4.5%;
-    top: 1%;
-    
-    
-    
+
+.post-interact {
+    position: sticky;
+    background-color: darkslategray;
+    width: 100%;
+    margin: 0;
+    height: 40px;
+    bottom: 0%;
 }
 
+.title{
+    position: sticky;
+    background-color: darkslategray;
+    width: 100%;
+    margin: 0;
+    height: 40px;
+    top: 0%;
+    z-index: 100;
+}
+.post-image{    
+    position: relative;
+    padding: 30px;
+    top: 1%;
 
+}
 #feed {
     
     background-color: black;

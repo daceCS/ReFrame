@@ -4,7 +4,9 @@ socket.on('post-to-feed', (caption, image)=>{
 
     let feed = $('#feed');
     let postContainer = `<div id="post-${postIndex}" class="post-container">
-                            <p id="post-caption-${postIndex}">${caption}</p>
+                              <div class="title">
+                              <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
+                            </div>
                             <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%" class="post-image">
                             
                           
@@ -23,13 +25,23 @@ function populateFeed(){
       let image = allPost[i].image;
       let caption = allPost[i].caption;
       let postContainer2 = `<div id="post-${postIndex}" class="post-container">
-                            <p id="post-caption-${postIndex}">${caption}</p>
+                            <div class="title">
+                              <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
+                            </div>
+                            
                             <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%"  class="post-image">
+                            <div id="post-interact-${postIndex}" class="post-interact">
+                              <p>Data</p>
+                            </div>
                             
                             
                           
                         </div>`
-      feed.prepend(postContainer2);
+     
+      
+      feed.prepend(postContainer2)  
+          
+      
       postIndex++;
     }
   })

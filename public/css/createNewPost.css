@@ -44,17 +44,15 @@ input[type="file"]::file-selector-button:hover {
 }
 
 #post-preview {
-  display: grid;
-  place-items: center;
-  background-color: rgb(253, 252, 252);
-  width: 500px;
-  height: 500px;
-  text-align: center;
-  margin: 10px;
-  border: 4px solid #1D7874;
-  position: relative;
-  left: 35%;
-  font-family: Garamond;
+    display: grid;
+    place-items:center;
+    background-color: #679289;
+    width: 500px;
+    max-height: 650px;
+    margin: 30px auto;
+    overflow-x: hidden;
+    font-family: Garamond;
+    font-size: large;
 }
 fieldset
 {
