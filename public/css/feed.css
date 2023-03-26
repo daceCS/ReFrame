@@ -41,6 +41,9 @@ header {
     font-size: large;
     
 }
+.post-container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
 .post-interact {
     position: sticky;
     background-color: darkslategray;
@@ -50,6 +53,7 @@ header {
     bottom: 0%;
 
 }
+
 
 .title{
     position: sticky;
@@ -73,6 +77,11 @@ header {
     margin: 0;
     position: fixed;
     top: 0;
+}
+.user-id{
+    position: absolute;
+    top: 0%;
+    left: 30%;
 }
 #sort-top-voted{
     position: absolute;

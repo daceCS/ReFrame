@@ -13,44 +13,39 @@
 </head>
 
 <body> 
-    <form id="fileupload">
-        
-    <fieldset id ="topBox">
-  
-            <div>  
-                <input id="caption" type="text" name="caption" oninput="changePreviewCaption()" maxlength="50" placeholder="Title" style="font-family: Garamond;">
-                <input id="uploader" type="file" name="image" onchange="img()" />
-                <input id="createButton" type="button" value="Post" />
-            </div>
-    </form>
-  </fieldset>
-    
-    <div class="legend1"></div>
-    <fieldset id="F1##">
+  <header>
+    <nav>
       
-      <legend>Post Preview</legend>
-      <div id="post-preview">
-        
-        
-        <div id="post-preview-image">
-
-            <img id="preview-image" src="" alt="" height="auto" width="80%">
-        </div>
-        <div id="post-preview-caption">
-          <style>
-            P{
-              border-style: inset none none;
-              border-width: 20px;
-              border-color: rgb(61, 89, 131);
-            }
-          </style>
-          <p id="preview-caption"></p>
-      </div>
-        
-
+    </nav>
+  </header>
+  <aside>
+    <div class="menu-div">
+      <nav class="menu">
+        <a href="/createPost" id="new-post-link">Create Post</a>
+      </nav>
+    </div>
+  </aside>
+    <form id="fileupload">
+        <div>
+          <h3>Create a post</h3>
+          <div class="upload-options">
+            <Button id="btn1">Upload Photo</Button>
+            <button id="btn2">Upload Text</button>
+          </div>
+          
+          <div id="main-post-content">
+                <input id="caption" type="text" name="caption" oninput="changePreviewCaption()" maxlength="50" placeholder="Title" style="font-family: Garamond;">
+                <div id="image-div">
+                  <input id="uploader" type="file" name="image" onchange="img()" />
+                </div>
+                
+                <input id="createButton" type="button" value="Post" />
+          </div>
+        </div> 
+    </form>
+  
     
-</div>
-    </fieldset>
+   
 
     <script src="../js/createPost.js">
 

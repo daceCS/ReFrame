@@ -8,7 +8,10 @@ socket.on('post-to-feed', (caption, image)=>{
                               <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
                             </div>
                             <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%" class="post-image">
-                            
+                            <div id="post-interact-${postIndex}" class="post-interact">
+                            <input type="button" value="like">
+                            <p id="user-id-${postIndex}">Post By: </p>
+                          </div>
                           
                         </div>`
      
@@ -31,7 +34,9 @@ function populateFeed(){
                             
                             <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%"  class="post-image">
                             <div id="post-interact-${postIndex}" class="post-interact">
-                              <p>Data</p>
+                              <input type="button" value="like">
+                              <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
+                              
                             </div>
                             
                             
