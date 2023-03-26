@@ -5,14 +5,21 @@
 ::root{
     --post-container-height: 650px
 }
-
 body {
     background-color: gray;
     padding: 0;
     overflow-x: hidden;
     
 }
-
+header {
+   
+    background-color: #24252A;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3000;
+}
 ::-webkit-scrollbar{
     width: 5px;
 }
@@ -22,21 +29,18 @@ body {
 ::-webkit-scrollbar-thumb{
     background: hsl(120 100% 20% / 1);
 }
-
 .post-container {
     display: grid;
     place-items:center;
     background-color: #679289;
     width: 500px;
     max-height: 650px;
-    margin: 30px auto;
+    margin: 10px auto;
     overflow-x: hidden;
     font-family: Garamond;
     font-size: large;
+    
 }
-
-
-
 .post-interact {
     position: sticky;
     background-color: darkslategray;
@@ -44,6 +48,7 @@ body {
     margin: 0;
     height: 40px;
     bottom: 0%;
+
 }
 
 .title{
@@ -61,9 +66,39 @@ body {
     top: 1%;
 
 }
+.menu{
+    background-color: black;
+    width: 10rem;
+    height: 100vh;
+    margin: 0;
+    position: fixed;
+    top: 0;
+}
+#sort-top-voted{
+    position: absolute;
+    left:80px;
+    top: 20px;
+}
+#sort-following{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+#sort-new{
+    position: absolute;
+    top: 20px;
+    left: 150px;
+}
+#sort-old{
+    position: absolute;
+    top: 20px;
+    left: 220px;
+}
+#sort-title{
+    position: absolute;
+}
 #feed {
     
-    background-color: black;
     width: 50%;
     margin: 90px auto;
     margin-left: auto;
@@ -72,15 +107,6 @@ body {
     
     
 
-}
-
-.menu{
-    background-color: black;
-    width: 10rem;
-    height: 100vh;
-    margin: 0;
-    position: fixed;
-    top: 0;
 }
 #new-post-link {
     display: block;
@@ -97,7 +123,37 @@ body {
     top: 100px;
     right: 11px;
 }
-
+#create-post-interaction {
+    background-color: cadetblue;
+    width: 500px;
+    height: 58px;
+    margin: 90px auto;
+    margin-left: auto;
+    margin-right:auto;
+    display: grid;
+    place-content: center;
+    border-radius: 5px;
+}
+#create-post-interact-field{
+    position: relative;
+    height: 40px;
+    width: 450px;
+    
+}
+#content-options {
+    background-color: cadetblue;
+    width: 500px;
+    height: 58px;
+    margin-left: auto;
+    margin-right:auto;
+    position: absolute;
+    top: 17.5%;
+    left: 37%;
+    display: grid;
+    place-content: center;
+    border-radius: 5px;
+    
+}
 
 
 

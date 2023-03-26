@@ -13,6 +13,11 @@
 </head>
 
 <body>
+    <header>
+      <nav>
+        
+      </nav>
+    </header>
     <aside>
       <div class="menu-div">
         <nav class="menu">
@@ -20,6 +25,18 @@
         </nav>
       </div>
     </aside>
+
+    <div id="create-post-interaction">
+      
+      <input type="text" id="create-post-interact-field" placeholder="Create Post" onclick="reDirectToCreatePost()">
+    </div>
+    <div id="content-options">
+      <p id="sort-title">Sort By:</p>
+      <input type="button" id="sort-top-voted" value="Top Voted">
+      <input type="button" id="sort-following" value="Following">
+      <input type="button" id="sort-new" value=" Sort New">
+      <input type="button" id="sort-old" value="Sort Oldest">
+    </div>
     
     <div id="feed"></div>
     

@@ -46,8 +46,8 @@ function populateFeed(){
     }
   })
 }
-function createNewPost(){
-  window.location.replace('/createPost');
+function reDirectToCreatePost(){
+  window.location.href = '/createPost';
 }
 $(document).ready(()=>{
   
