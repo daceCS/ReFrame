@@ -1,8 +1,9 @@
-let Data = function(caption, image) {
+let Data = function(caption, postData, inputType) {
     
     this.caption = caption;
-    this.image = image;
+    this.postData = postData;
     this.votes = 0;
+    this.inputType = inputType;
 }
 
 

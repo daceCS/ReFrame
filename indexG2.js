@@ -17,11 +17,12 @@ const io = require('socket.io')(http);
 
 // create a new connection with socket.io
 io.on('connection', socket => {
-    socket.on('upload-post', (caption, image) => {
-        let obj = new Data(caption, image);
+    socket.on('upload-post', (caption, postData, inputType) => {
+        
+        let obj = new Data(caption, postData, inputType);
         let val = router.db.postData(obj);
-        io.emit('post-to-feed', caption, image);
-
+        console.log(obj)
+        io.emit('post-to-feed', caption, postData, inputType);
     })
 })
 

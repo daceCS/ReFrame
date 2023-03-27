@@ -89,15 +89,26 @@ function deleteClicked() {
 
 
     function createClicked() {
-      let caption = $("#caption").val();
-      let image = lastImage;
-      if(image == null){
-        alert("Choose an Image to Post")
-        return;
+      if(inputType == 0){
+        let caption = $("#caption").val();
+        let postData = lastImage;
+        if(postData == null){
+          alert("Choose an Image to Post")
+          return;
+        }
+        socket.emit('upload-post', caption, postData, inputType)
+        window.location.replace('/feed');
+        return false;
       }
-      socket.emit('upload-post', caption, image)
-      window.location.replace('/feed');
-      return false;
+      else {
+        let caption =  $("#caption").val();
+        let postData = $("#text-input").val();
+        socket.emit('upload-post', caption, postData, inputType)
+        window.location.replace('/feed');
+        return false;
+      }
+      
+      
   }
   function switchToUploadPhoto(){
     let UploadPhotoHtml = `<input id="uploader" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />

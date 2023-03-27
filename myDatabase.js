@@ -17,8 +17,7 @@ myDatabase.prototype.displayData = function() {
 }
 
 myDatabase.prototype.postData = function(_data) {
-  this.data[dataIndex++] =
-      new Data(_data.caption, _data.image);
+  this.data[dataIndex++] = new Data(_data.caption, _data.postData, _data.inputType);
 
   return true;
 }
@@ -29,7 +28,7 @@ myDatabase.prototype.initAccount = function(accObj) {
   return accountIndex-1;
 }
 
-myDatabase.prototype.getData = function(type) { // pass in type parameter to chose which data type is wanted
+myDatabase.prototype.getData = function(type) { // pass in type parameter to chose which data type is wanted (0 = post, 1 = accounts)
   if(type == 0){
     return this.data;
 

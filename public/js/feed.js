@@ -1,13 +1,13 @@
 const socket = io();
 postIndex = 0;
-socket.on('post-to-feed', (caption, image)=>{
-
+socket.on('post-to-feed', (caption, postData, inputType)=>{
+  if(inputType == 0){
     let feed = $('#feed');
     let postContainer = `<div id="post-${postIndex}" class="post-container">
                               <div class="title">
                               <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
                             </div>
-                            <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%" class="post-image">
+                            <img src="${postData}" id="post-image-${postIndex}" height="auto" width="90%" class="post-image">
                             <div id="post-interact-${postIndex}" class="post-interact">
                             <input type="button" value="like">
                             <p id="user-id-${postIndex}">Post By: </p>
@@ -17,6 +17,27 @@ socket.on('post-to-feed', (caption, image)=>{
      
 
       feed.prepend(postContainer);
+  }
+  else if(inputType == 1){
+    let postContainer = `<div id="post-${postIndex}" class="post-container">
+                          <div class="title">
+                            <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
+                          </div>
+                          <p>${postData}</p>
+                          <div id="post-interact-${postIndex}" class="post-interact">
+                            <input type="button" value="like">
+                            <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
+                            
+                          </div>
+                          
+                          
+                        
+                      </div>`
+  
+    
+    feed.prepend(postContainer)  
+  }
+    
      
   postIndex++;
 })
@@ -25,26 +46,51 @@ function populateFeed(){
   $.get('/populate-feed', (data)  =>{
     let allPost = data.allPost;
     for(i = 0; i<allPost.length; i++){
-      let image = allPost[i].image;
-      let caption = allPost[i].caption;
-      let postContainer2 = `<div id="post-${postIndex}" class="post-container">
-                            <div class="title">
-                              <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
-                            </div>
-                            
-                            <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%"  class="post-image">
-                            <div id="post-interact-${postIndex}" class="post-interact">
-                              <input type="button" value="like">
-                              <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
-                              
-                            </div>
-                            
-                            
-                          
-                        </div>`
-     
       
-      feed.prepend(postContainer2)  
+        if(allPost[i].inputType == 0){
+          let image = allPost[i].postData;
+          let caption = allPost[i].caption;
+          let postContainer2 = `<div id="post-${postIndex}" class="post-container">
+                                <div class="title">
+                                  <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
+                                </div>
+                                
+                                <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%"  class="post-image">
+                                <div id="post-interact-${postIndex}" class="post-interact">
+                                  <input type="button" value="like">
+                                  <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
+                                  
+                                </div>
+                                
+                                
+                              
+                            </div>`
+        
+          
+          feed.prepend(postContainer2)  
+        }
+        else{
+          let text = allPost[i].postData;
+          let caption = allPost[i].caption;
+          let postContainer2 = `<div id="post-${postIndex}" class="post-container">
+                                <div class="title">
+                                  <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
+                                </div>
+                                <p>${text}</p>
+                                <div id="post-interact-${postIndex}" class="post-interact">
+                                  <input type="button" value="like">
+                                  <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
+                                  
+                                </div>
+                                
+                                
+                              
+                            </div>`
+        
+          
+          feed.prepend(postContainer2)  
+        }
+      
           
       
       postIndex++;
