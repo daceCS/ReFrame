@@ -20,7 +20,7 @@ function deleteClicked() {
   }
 
   function changePreviewCaption(){
-
+  
     //Changes caption live in preview
     let captionValue = $("#caption").val()
     $("#preview-caption").text(captionValue);
@@ -33,6 +33,11 @@ function deleteClicked() {
     console.log('Ready');
     $("#createButton").click(createClicked);
   });
+
+  function uploadFile(){
+    console.log($('#uploader'))
+    $('#uploader').click();
+  }
   
   function img() {
     let data = new FormData($("#fileupload")[0]);

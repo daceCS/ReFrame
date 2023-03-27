@@ -29,14 +29,15 @@
         <div>
           <h3>Create a post</h3>
           <div class="upload-options">
-            <Button id="btn1">Upload Photo</Button>
-            <button id="btn2">Upload Text</button>
+            <input type="button" value="Upload Photo" id="btn1">
+            <input type="button" value="Upload Text" id="btn2">
           </div>
           
           <div id="main-post-content">
                 <input id="caption" type="text" name="caption" oninput="changePreviewCaption()" maxlength="50" placeholder="Title" style="font-family: Garamond;">
                 <div id="image-div">
-                  <input id="uploader" type="file" name="image" onchange="img()" />
+                  <input id="uploader" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />
+                  <input type="button" name="" id="upload-image" value="Upload" onclick="uploadFile()">
                 </div>
                 
                 <input id="createButton" type="button" value="Post" />
