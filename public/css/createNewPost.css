@@ -104,6 +104,36 @@ form {
   min-width: 80%;
   min-height: 80%;
 }
+#new-post-link {
+  display: block;
+  width: 115px;
+  height: 25px;
+  background: rgba(24, 67, 92, 0.671);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  line-height: 25px;
+  position: absolute;
+  top: 160px;
+  right: 11px;
+}
+#home-link {
+  display: block;
+  width: 115px;
+  height: 25px;
+  background: rgba(24, 67, 92, 0.671);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  line-height: 25px;
+  position: absolute;
+  top: 100px;
+  right: 11px;
+}
 #post-preview {
     display: grid;
     place-items:center;

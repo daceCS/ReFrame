@@ -117,7 +117,30 @@ header {
     
 
 }
+#text-post{
+    padding:20px;
+    background-color: black;
+    color: white;
+    letter-spacing: 1px;
+    line-height:30px;
+    
+}
 #new-post-link {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: rgba(24, 67, 92, 0.671);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    position: absolute;
+    top: 160px;
+    right: 11px;
+}
+#home-link {
     display: block;
     width: 115px;
     height: 25px;
