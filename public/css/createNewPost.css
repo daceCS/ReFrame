@@ -72,7 +72,7 @@ form {
 }
 #upload-image{
   font-weight: initial;
-  width: 80px;
+  width: 110px;
   height: 32px;
   border-radius: 10px;
   color: rgb(255, 255, 255);
@@ -92,7 +92,12 @@ form {
   border: 2px solid #1D7874;
   
 }
-
+#text-input{
+  border-style: none;
+  font-family: 'Courier New', Courier, monospace;
+  width: 100%;
+  height: 100%;
+}
 #post-preview {
     display: grid;
     place-items:center;

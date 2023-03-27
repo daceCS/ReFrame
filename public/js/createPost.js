@@ -1,3 +1,5 @@
+let inputType = 0;
+
 function deleteClicked() {
     let trimIdentifier = $("#identifier").val().trim();
     if (trimIdentifier == "") {
@@ -69,7 +71,9 @@ function deleteClicked() {
         $('#text').html("Hello");
         lastImageName = data.name;
         lastImage = "images/" + data.name;
-        $("#preview-image").attr("src", lastImage);
+        let appendingData = `<img src="${lastImage}" alt="" height="200px" width="200px" id="preview-data">`
+        $("#preview-data").remove();
+        $("#image-div").append(appendingData);
        
         return;
       }
@@ -94,4 +98,18 @@ function deleteClicked() {
       socket.emit('upload-post', caption, image)
       window.location.replace('/feed');
       return false;
+  }
+  function switchToUploadPhoto(){
+    let UploadPhotoHtml = `<input id="uploader" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />
+    <input type="button" name="" id="upload-image" value="Upload Image" onclick="uploadFile()">`;
+    console.log('etst');
+    let imageDiv = $('#image-div');
+    imageDiv.html(UploadPhotoHtml);
+    inputType = 0;
+  }
+  function switchToUploadText() {
+    let UploadTextHtml = ` <textarea name="text input" id="text-input" cols="60" rows="15"></textarea>`;
+    let imageDiv = $('#image-div');
+    imageDiv.html(UploadTextHtml);
+    inputType = 1;
   }
