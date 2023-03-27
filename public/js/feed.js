@@ -23,7 +23,7 @@ socket.on('post-to-feed', (caption, postData, inputType)=>{
                           <div class="title">
                             <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
                           </div>
-                          <p>${postData}</p>
+                          <p id="text-post">${postData}</p>
                           <div id="post-interact-${postIndex}" class="post-interact">
                             <input type="button" value="like">
                             <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
@@ -76,7 +76,7 @@ function populateFeed(){
                                 <div class="title">
                                   <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
                                 </div>
-                                <p>${text}</p>
+                                <p id="text-post">${text}</p>
                                 <div id="post-interact-${postIndex}" class="post-interact">
                                   <input type="button" value="like">
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
