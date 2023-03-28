@@ -64,15 +64,24 @@ router.get('/create-account', (req, res) =>{
     res.sendFile(path.resolve(__dirname + "/public/views/createAccount.html"));
 })
 router.get('/get-current-users', (req, res) =>{
-    res.json({allAccounts: db.getData(1)});
+    let accounts = db.getData(1)
+
+    for(i = 0; i<accounts; i++){
+        if(req.body.username == accounts[i].username){
+            res.json({userExist: true})
+            return;
+        }
+    }
+    res.json({userExist: false});
 })
 router.post('/handle-new-account', (req, res)=>{
     let username = req.body.username;
     let password = req.body.password;
     let accObj = new Account(username, password)
     let val = db.initAccount(accObj);
+    console.log(val);
     
-    res.json({userAccount: accObj, userServerIndex: val});
+    res.json({userServerIndex: val});
 
 })
 

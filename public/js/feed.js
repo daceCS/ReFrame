@@ -15,7 +15,7 @@ socket.on('post-to-feed', (caption, postData, inputType)=>{
                           
                         </div>`
      
-
+      
       feed.prepend(postContainer);
   }
   else if(inputType == 1){
@@ -65,8 +65,7 @@ function populateFeed(){
                                 
                               
                             </div>`
-        
-          
+        console.log(postContainer2)
           feed.prepend(postContainer2)  
         }
         else{

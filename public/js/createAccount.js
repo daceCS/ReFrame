@@ -2,40 +2,50 @@ let clientAccount;
 let clientAccountServerIndex;
 
 function createAccount(){
-    console.log("yo")
-    let username = $("username").val();
-    let password = $("password").val();
+    let username = $("#username").val();
+    let password = $("#password").val();
     $.ajax({
         url: "/get-current-users",
         type: "GET",
+        data: {
+          username: username,
+          password: password
+    
+        },
         success: (data) => {
-          if (data.error)
-            alert("bad");
+          if (data.userExist)
+            alert("Username Already Taken");
           else {
-            let accounts = data.allAccounts;
-
-            for(i = 0; i<accounts; i++){
-                if(username == accounts[i].username){
-                    alert("Username Already Taken");
-                    return false;
-                }
-                else{
-                    initAccount();
-                }
-            }
+            initAccount();
           }
         },
         dataType: "json"
       });
       function initAccount(){
-        $.post('/handle-new-account', {username: username, password: password}, (userAccount, userServerIndex)=>{
-            clientAccount = userAccount;
-            clientAccountServerIndex = userServerIndex;
-            changeWindow();
-        })
+
+        $.ajax({
+          url: "/handle-new-account",
+          type: "POST",
+          data: {
+            username: username,
+            password: password
+      
+          },
+          success: function (data) {
+            if (data.error)
+              alert("bad");
+            else {
+              clientAccountServerIndex = data.userServerIndex;
+              changeWindow();
+            }
+            
+          },
+          dataType: "json"
+        });
       }
       function changeWindow(){
         window.location.replace('/feed');
       }
 }
+
 

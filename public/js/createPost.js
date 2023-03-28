@@ -1,3 +1,4 @@
+//let userAccountData = require("./createAccount");
 let inputType = 0;
 
 function deleteClicked() {
