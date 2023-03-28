@@ -21,7 +21,7 @@ io.on('connection', socket => {
         
         let obj = new Data(caption, postData, inputType);
         let val = router.db.postData(obj);
-        io.emit('post-to-feed', caption, postData, inputType);
+        io.emit('post-to-feed');
     })
 })
 
