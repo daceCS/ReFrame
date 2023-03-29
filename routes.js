@@ -10,6 +10,8 @@ let db = new myDatabase();
 const Data = require('./Data');
 const Account = require('./Account');
 
+let newDevEnvVar = 0;
+
 
 
 
@@ -64,26 +66,41 @@ router.get('/create-account', (req, res) =>{
     res.sendFile(path.resolve(__dirname + "/public/views/createAccount.html"));
 })
 router.get('/get-current-users', (req, res) =>{
-    let accounts = db.getData(1)
-
-    for(i = 0; i<accounts; i++){
-        if(req.body.username == accounts[i].username){
-            res.json({userExist: true})
+    console.log('/get-current-users called')
+    let accounts = db.getData(1); // getData pass in 1 for accounts
+ 
+    for(i = 0; i<accounts.length; i++){
+        console.log("server: " + accounts[i].username)
+        console.log(req.query.username)
+        if(req.query.username == accounts[i].username){
+            console.log(accounts[i]);
+            res.json({userExist: true, account: accounts[i], accountIndex: i})
             return;
         }
     }
     res.json({userExist: false});
 })
+router.get('/get-user', (req, res) =>{
+    let user = db.getUser(req.query.userIndex);
+    res.json({userAccount: user});
+})
+
 router.post('/handle-new-account', (req, res)=>{
+
     let username = req.body.username;
     let password = req.body.password;
     let accObj = new Account(username, password)
     let val = db.initAccount(accObj);
-    console.log(val);
     
     res.json({userServerIndex: val});
 
 })
+
+router.get('/new-dev-env', (req, res) =>{
+    newDevEnvVar++;
+    res.json({dev: newDevEnvVar-1})
+})
+
 
 // exports express routes and myDatabase instance
 module.exports = {

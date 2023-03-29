@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReFrame - Login</title>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 </head>
 <body>
     <div class="login">
         <form action="login">
             <label for="username">Username</label>
             <br>
-            <input type="text" id="username" placeholder="Enter Username" onkeypress="return event.charCode != 32" maxlength="14">
+            <input type="text" name="username" id="username" placeholder="Enter Username" onkeypress="return event.charCode != 32" maxlength="14">
             <br>
             <label for="password">Password</label>
             <br>
-            <input type="password" id="password" placeholder="Enter Password" onkeypress="return event.charCode != 32">
+            <input type="password" name="password" id="password" placeholder="Enter Password" onkeypress="return event.charCode != 32">
             <br>
-            <button onclick="login()">Login</button>
+            <input type="button" onclick="login()" value="login"/>
             <br>
             <a href="/create-account">Dont have an account? Sign Up</a>
         </form>

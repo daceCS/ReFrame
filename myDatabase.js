@@ -27,7 +27,9 @@ myDatabase.prototype.initAccount = function(accObj) {
   accountIndex++;
   return accountIndex-1;
 }
-
+myDatabase.prototype.getUser = function(userIndex){
+  return this.accounts[userIndex];
+}
 myDatabase.prototype.getData = function(type) { // pass in type parameter to chose which data type is wanted (0 = post, 1 = accounts)
   if(type == 0){
     return this.data;

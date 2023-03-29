@@ -65,6 +65,31 @@ function reDirectToCreatePost(){
   window.location.href = '/createPost';
 }
 $(document).ready(()=>{
+  $.get('/new-dev-env', {},  (data)=>{
+    if(data.dev == 0){
+      localStorage.clear();
+    }
+  })
+  let num = localStorage.getItem('clientAccountIndex');
+  
+  console.log(num)
+  
+  
+
+  $.ajax({
+    url: "/get-user",
+    type: "GET",
+    data: {
+      userIndex: num
+
+    },
+    success: (data) => {
+      console.log(data.userAccount)
+    },
+    dataType: "json"
+  });
+
   
   populateFeed();
 })
+

@@ -1,6 +1,5 @@
-//let userAccountData = require("./createAccount");
 let inputType = 0;
-
+/*
 function deleteClicked() {
     let trimIdentifier = $("#identifier").val().trim();
     if (trimIdentifier == "") {
@@ -21,7 +20,7 @@ function deleteClicked() {
     });
     return false;
   }
-
+*/
   function changePreviewCaption(){
   
     //Changes caption live in preview

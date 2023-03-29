@@ -1,20 +1,24 @@
-let clientAccount; 
 let clientAccountServerIndex;
 
 function createAccount(){
     let username = $("#username").val();
     let password = $("#password").val();
+
+    if(password == ""){
+      return;
+    }
     $.ajax({
         url: "/get-current-users",
         type: "GET",
         data: {
-          username: username,
-          password: password
-    
+          username: username
         },
         success: (data) => {
-          if (data.userExist)
+          if (data.userExist == true){
+            console.log('username match')
             alert("Username Already Taken");
+            return;
+          }
           else {
             initAccount();
           }
@@ -44,6 +48,7 @@ function createAccount(){
         });
       }
       function changeWindow(){
+        localStorage.setItem("clientAccountIndex", clientAccountServerIndex)
         window.location.replace('/feed');
       }
 }
