@@ -1,8 +1,7 @@
 const socket = io();
-postIndex = 0;
+let postIndex = 0;
 socket.on('post-to-feed', ()=>{
-
-  populateFeed();
+  populateFeed()
 })
 function populateFeed(){
   let feed = $('#feed');
@@ -15,6 +14,7 @@ function populateFeed(){
         if(allPost[i].inputType == 0){
           let image = allPost[i].postData;
           let caption = allPost[i].caption;
+          let postedBy = allPost[i].postedBy;
           postContainer = `<div id="post-${postIndex}" class="post-container">
                                 <div class="title">
                                   <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
@@ -24,18 +24,23 @@ function populateFeed(){
                                 <div id="post-interact-${postIndex}" class="post-interact">
                                   <input type="button" value="like">
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
+                                  <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
                                   
                                 </div>
                                 
                                 
                               
                             </div>`
+          
+         
+          feed.prepend(postContainer) 
+          postIndex++;
 
-          feed.prepend(postContainer)  
         }
         else{
           let text = allPost[i].postData;
           let caption = allPost[i].caption;
+          let postedBy = allPost[i].postedBy;
           postContainer = `<div id="post-${postIndex}" class="post-container">
                                 <div class="title">
                                   <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
@@ -44,35 +49,42 @@ function populateFeed(){
                                 <div id="post-interact-${postIndex}" class="post-interact">
                                   <input type="button" value="like">
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
+                                  <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
                                   
                                 </div>
                                 
                                 
                               
                             </div>`
-        
+              
           
-          feed.prepend(postContainer)  
+          feed.prepend(postContainer) 
+          postIndex++;
+          
         }
       
           
       
-      postIndex++;
+      
     }
   })
 }
 function reDirectToCreatePost(){
   window.location.href = '/createPost';
 }
+function signOut(){
+  localStorage.clear();
+}
 $(document).ready(()=>{
+  // get rid of this before deploying!!!!
   $.get('/new-dev-env', {},  (data)=>{
     if(data.dev == 0){
       localStorage.clear();
     }
-  })
+})
   let num = localStorage.getItem('clientAccountIndex');
-  
-  console.log(num)
+  if(num != null)
+    console.log(num)
   
   
 
@@ -89,7 +101,6 @@ $(document).ready(()=>{
     dataType: "json"
   });
 
-  
   populateFeed();
 })
 

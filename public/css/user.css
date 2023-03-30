@@ -1,0 +1,272 @@
+*{
+    margin:0;
+    padding: 0;
+}
+::root{
+    --post-container-height: 650px
+}
+body {
+    background-color: gray;
+    padding: 0;
+    overflow-x: hidden;
+    
+}
+header {
+   
+    background-color: #24252A;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3000;
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background: hsl(120 50% 50% / 1);
+}
+::-webkit-scrollbar-thumb{
+    background: hsl(120 100% 20% / 1);
+}
+.post-container {
+    display: grid;
+    place-items:center;
+    background-color: #679289;
+    width: 500px;
+    max-height: 650px;
+    margin: 10px auto;
+    overflow-x: hidden;
+    font-family: Garamond;
+    font-size: large;
+    
+}
+.post-container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+.post-interact {
+    position: sticky;
+    background-color: darkslategray;
+    width: 100%;
+    margin: 0;
+    height: 40px;
+    bottom: 0%;
+
+}
+
+
+.title{
+    position: sticky;
+    background-color: darkslategray;
+    width: 100%;
+    margin: 0;
+    height: 40px;
+    top: 0%;
+    z-index: 100;
+}
+.post-image{    
+    position: relative;
+    padding: 30px;
+    top: 1%;
+
+}
+.menu{
+    background-color: black;
+    width: 10rem;
+    height: 100vh;
+    margin: 0;
+    position: fixed;
+    top: 0;
+}
+.user-id{
+    position: absolute;
+    top: 0%;
+    left: 30%;
+}
+#sort-top-voted{
+    position: absolute;
+    left:80px;
+    top: 20px;
+}
+#sort-following{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+#sort-new{
+    position: absolute;
+    top: 20px;
+    left: 150px;
+}
+#sort-old{
+    position: absolute;
+    top: 20px;
+    left: 220px;
+}
+#sort-title{
+    position: absolute;
+}
+#feed {
+    
+    width: 50%;
+    margin: 90px auto;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 10%;
+    align-items: center;
+    
+    
+
+}
+#text-post{
+    padding:20px;
+    background-color: black;
+    color: white;
+    letter-spacing: 1px;
+    line-height:30px;
+    
+}
+#new-post-link {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: rgba(24, 67, 92, 0.671);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    position: absolute;
+    top: 160px;
+    right: 11px;
+}
+#home-link {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: rgba(24, 67, 92, 0.671);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    position: absolute;
+    top: 100px;
+    right: 11px;
+}
+.user-link{
+    position: absolute;
+    left: 42%
+}
+#create-post-interaction {
+    background-color: cadetblue;
+    width: 500px;
+    height: 58px;
+    margin: 90px auto;
+    margin-left: auto;
+    margin-right:auto;
+    display: grid;
+    place-content: center;
+    border-radius: 5px;
+}
+#create-post-interact-field{
+    position: relative;
+    height: 40px;
+    width: 450px;
+    
+}
+#content-options {
+    background-color: cadetblue;
+    width: 500px;
+    height: 58px;
+    margin-left: auto;
+    margin-right:auto;
+    position: absolute;
+    top: 10%;
+    left: 37%;
+    display: grid;
+    place-content: center;
+    border-radius: 5px;
+    
+}
+#username{
+    color: azure;
+    font-size: large;
+    position: absolute;
+    top: 33%;
+    left: 7%;
+
+}
+#follow-count{
+position: absolute;
+color: azure;
+top: 40%;
+left: 7%;
+
+
+}
+#post-count{
+position: absolute;
+color: azure;
+top: 40%;
+left: 60%;
+}
+#bio{
+    color: azure;
+    position: absolute; 
+    top: 50%;
+    padding: 5%; 
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.user-info{
+    
+    background-color: #24252A;
+    width: 300px;
+    height: 380px;
+    margin-left: 28%;
+    margin-right:auto;
+    position: absolute;
+    top: 10%;
+    left: 37%;
+    display: grid;
+    place-content: center;
+    border-radius: 5px;
+}
+.banner{
+    background-color: #6A5D7B;
+    width: 100%;
+    height: 30%;
+    margin-left: 28%;
+    margin-right:auto;
+    position: absolute;
+    right: 0;
+    display: grid;
+    place-content: center;
+    border-radius: 5px;
+}
+.profileIcon{
+    background-color: #749C75;
+    width: 80px;
+    height: 80px;
+    margin-left: 28%;
+    margin-right:auto;
+    position: absolute;
+    left: -23%;
+    top: 11%;
+    display: grid;
+    place-content: center;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+

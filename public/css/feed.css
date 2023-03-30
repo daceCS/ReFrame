@@ -155,6 +155,10 @@ header {
     top: 100px;
     right: 11px;
 }
+.user-link{
+    position: absolute;
+    left: 42%
+}
 #create-post-interaction {
     background-color: cadetblue;
     width: 500px;

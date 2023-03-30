@@ -32,7 +32,21 @@ router.get("/createPost", function(req, res) {
 router.get("/feed", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/public/views/feed.html"));
 })
+router.get('/user/:identifier', (req, res)=>{
+    let username = req.params.identifier.trim();
 
+    let accounts = db.getData(1);
+
+    for(i = 0; i<accounts.length; i++){
+        if(accounts[i].username == username){
+            res.sendFile(path.join(__dirname, "/public/views/user.html"));
+            return;
+            
+        }
+        
+    }
+    res.send("no user")
+})
 // handles file uploads
 router.post('/fileupload', function(req, res) {
     var form = new formidable.IncomingForm();
@@ -66,14 +80,12 @@ router.get('/create-account', (req, res) =>{
     res.sendFile(path.resolve(__dirname + "/public/views/createAccount.html"));
 })
 router.get('/get-current-users', (req, res) =>{
-    console.log('/get-current-users called')
+    
     let accounts = db.getData(1); // getData pass in 1 for accounts
  
     for(i = 0; i<accounts.length; i++){
-        console.log("server: " + accounts[i].username)
-        console.log(req.query.username)
         if(req.query.username == accounts[i].username){
-            console.log(accounts[i]);
+        
             res.json({userExist: true, account: accounts[i], accountIndex: i})
             return;
         }

@@ -10,18 +10,35 @@ let myDatabase = function() {
 let dataIndex = 0;
 let accountIndex = 0;
 
-myDatabase.prototype.displayData = function() {
-  for (let i = 0; i < this.data.length; i++) {
+myDatabase.prototype.displayData = function(type) {
+  if(type == 0){
+    for (let i = 0; i < this.data.length; i++) {
       console.log(this.data[i]);
   }
+  }
+  if(type == 1){
+    for(i = 0; i<this.accounts.length; i++){
+      console.log(this.accounts[i]);
+    }
+  }
+  
 }
 
 myDatabase.prototype.postData = function(_data) {
-  this.data[dataIndex++] = new Data(_data.caption, _data.postData, _data.inputType);
+  let obj = new Data(_data.caption, _data.postData, _data.inputType, _data.postedBy);
+  _data.postedBy.posts[_data.postedBy.postCount] = this.data[dataIndex];
+  this.data[dataIndex] = obj;
+  _data.postedBy.postCount++;
+  dataIndex++;
 
   return true;
 }
-
+myDatabase.prototype.updateData = function(index, post){
+  console.log(index);
+  console.log(this.accounts[index]);
+  this.accounts[index].posts[this.accounts[index].postCount] = post;
+  this.accounts[index].postCount++;
+}
 myDatabase.prototype.initAccount = function(accObj) {
   this.accounts[accountIndex] = accObj;
   accountIndex++;

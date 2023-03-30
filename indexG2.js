@@ -17,10 +17,12 @@ const io = require('socket.io')(http);
 
 // create a new connection with socket.io
 io.on('connection', socket => {
-    socket.on('upload-post', (caption, postData, inputType) => {
-        
-        let obj = new Data(caption, postData, inputType);
+    socket.on('upload-post', (upObj) => {
+       
+        let obj = new Data(upObj.caption, upObj.postData, upObj.inputType, upObj.userAccount);
         let val = router.db.postData(obj);
+        router.db.updateData(upObj.userIndex, obj);
+        router.db.displayData(1);
         io.emit('post-to-feed');
     })
 })

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/user.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/user.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+          <input type="button" value="Sign Out" id="sign-out" onclick="signOut()">
+        </nav>
+      </header>
+      <aside>
+        <div class="menu-div">
+          <nav class="menu">
+            <a href="/feed" id="home-link">Home</a>
+            <a href="/createPost" id="new-post-link">Create Post</a>
+          </nav>
+        </div>
+      </aside>
+      
+      <div id="content-options">
+        <p id="sort-title">Sort By:</p>
+        <input type="button" id="sort-top-voted" value="Most Liked">
+        <input type="button" id="sort-following" value="Following">
+        <input type="button" id="sort-new" value=" Sort New">
+        <input type="button" id="sort-old" value="Sort Oldest">
+      </div>
+
+      <div class="feed" id="feed"></div>
+</body>
+</html>

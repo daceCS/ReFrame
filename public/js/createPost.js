@@ -1,4 +1,6 @@
 let inputType = 0;
+let accountIndex;
+let userAccount;
 /*
 function deleteClicked() {
     let trimIdentifier = $("#identifier").val().trim();
@@ -32,12 +34,10 @@ function deleteClicked() {
   let lastText;
   let lastImageName;
   $(document).ready(function () {
-    console.log('Ready');
     $("#createButton").click(createClicked);
   });
 
   function uploadFile(){
-    console.log($('#uploader'))
     $('#uploader').click();
   }
   
@@ -83,12 +83,11 @@ function deleteClicked() {
     //socket.io code 
     const socket = io();
     socket.on('connect', () =>{
-      console.log(socket.id);
     })
 
 
 
-    function createClicked() {
+    function createClicked() { // post button clicked
       if(inputType == 0){
         let caption = $("#caption").val();
         let postData = lastImage;
@@ -96,14 +95,19 @@ function deleteClicked() {
           alert("Choose an Image to Post")
           return;
         }
-        socket.emit('upload-post', caption, postData, inputType)
+        socket.emit('upload-post', {caption: caption, postData: postData, inputType: inputType, userAccount: userAccount, userIndex: accountIndex})
         window.location.replace('/feed');
         return false;
       }
       else {
         let caption =  $("#caption").val();
         let postData = $("#text-input").val();
-        socket.emit('upload-post', caption, postData, inputType)
+        if(postData == ""){
+          alert("Text field is empty")
+          return;
+        }
+       
+        socket.emit('upload-post', {caption: caption, postData: postData, inputType: inputType, userAccount: userAccount, userIndex: accountIndex})
         window.location.replace('/feed');
         return false;
       }
@@ -113,7 +117,6 @@ function deleteClicked() {
   function switchToUploadPhoto(){
     let UploadPhotoHtml = `<input id="uploader" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />
     <input type="button" name="" id="upload-image" value="Upload Image" onclick="uploadFile()">`;
-    console.log('etst');
     let imageDiv = $('#image-div');
     imageDiv.html(UploadPhotoHtml);
     inputType = 0;
@@ -124,3 +127,16 @@ function deleteClicked() {
     imageDiv.html(UploadTextHtml);
     inputType = 1;
   }
+
+  $(document).ready(()=>{
+    if(localStorage.getItem("clientAccountIndex") == null){
+      window.location.replace('/login');
+    }
+    else{
+      accountIndex = localStorage.getItem("clientAccountIndex");
+      $.get('/get-user', {userIndex: accountIndex}, (data)=>{
+        userAccount = data.userAccount; 
+        console.log(userAccount);
+      })
+    }
+  });
