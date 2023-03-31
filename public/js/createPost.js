@@ -136,7 +136,9 @@ function deleteClicked() {
       accountIndex = localStorage.getItem("clientAccountIndex");
       $.get('/get-user', {userIndex: accountIndex}, (data)=>{
         userAccount = data.userAccount; 
-        console.log(userAccount);
+        let loginElement = `<a href="/user/${userAccount.username}" id="profile-link">Profile</a>`;
+        let menu = $('.menu');
+        menu.append(loginElement);
       })
     }
   });

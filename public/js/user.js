@@ -12,19 +12,21 @@ $(document).ready(()=>{
     let userPagePostCount;
     let userPageBio;
     let allPost;
+    let userBannerImg;
+    let userProfileIcon;
     $.get('/get-current-users', {username: userPage}, (data)=>{
         userPageObj = data.account;
-        console.log('userpage ')
-        console.log(userPageObj)
         userPageUsername = userPageObj.username;
         userPageFollowCount = userPageObj.following.length;
         userPagePostCount = userPageObj.postCount;
         userPageBio = userPageObj.bio;
         allPost = userPageObj.posts;
+        userBannerImg = userPageObj.bannerImage;
+        userProfileIcon = userPageObj.profileIcon;
         let postIndex = 0;
         let userCard = `<div class="user-info">
-        <div class="banner"></div>
-        <div class="profileIcon"></div>
+        <img class="banner" src="${userBannerImg}">
+        <img class="profileIcon" src="${userProfileIcon}">
         <p id="username">${userPageUsername}</p>
         <p id="follow-count">Followers: ${userPageFollowCount}</p>
         <p id="post-count">Posts: ${userPagePostCount}</p>
@@ -61,6 +63,8 @@ $(document).ready(()=>{
              
               feed.prepend(postContainer) 
               postIndex++;
+
+             
     
             }
             else{
@@ -88,9 +92,28 @@ $(document).ready(()=>{
               postIndex++;
               
             }
+
+            
+            
         }
 
     });
+
+    if(localStorage.getItem('clientAccountIndex') == null){
+      let loginElement = `<a href="/login" id="profile-link">Profile</a>`;
+      let menu = $('.menu');
+      menu.append(loginElement);
+    }
+    else if(localStorage.getItem('clientAccountIndex') != null){
+      let userIndex = localStorage.getItem('clientAccountIndex');
+      $.get('/get-user', {userIndex: userIndex}, (data)=>{
+        let loginElement = `<a href="/user/${data.userAccount.username}" id="profile-link">Profile</a>`;
+        let menu = $('.menu');
+        
+        menu.append(loginElement);
+      })
+      
+    }
    
    
     

@@ -155,6 +155,21 @@ header {
     top: 100px;
     right: 11px;
 }
+#profile-link {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: rgba(24, 67, 92, 0.671);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    position: absolute;
+    top: 220px;
+    right: 11px;
+}
 .user-link{
     position: absolute;
     left: 42%
@@ -175,6 +190,14 @@ header {
     height: 40px;
     width: 450px;
     
+}
+#search{
+    width: 40%;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: 27%;
+    font-size: large;
 }
 #content-options {
     background-color: cadetblue;

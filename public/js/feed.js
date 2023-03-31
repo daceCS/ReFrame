@@ -76,30 +76,36 @@ function signOut(){
   localStorage.clear();
 }
 $(document).ready(()=>{
-  // get rid of this before deploying!!!!
-  $.get('/new-dev-env', {},  (data)=>{
-    if(data.dev == 0){
-      localStorage.clear();
-    }
-})
+  
+  
   let num = localStorage.getItem('clientAccountIndex');
-  if(num != null)
-    console.log(num)
+  
+  if(num == null){
+    let loginElement = `<a href="/login" id="profile-link">Profile</a>`;
+    let menu = $('.menu');
+    menu.append(loginElement);
+  }
+
   
   
-
-  $.ajax({
-    url: "/get-user",
-    type: "GET",
-    data: {
-      userIndex: num
-
-    },
-    success: (data) => {
-      console.log(data.userAccount)
-    },
-    dataType: "json"
-  });
+  if(num != null){
+    $.ajax({
+      url: "/get-user",
+      type: "GET",
+      data: {
+        userIndex: num
+  
+      },
+      success: (data) => {
+        console.log(data.userAccount)
+        let loginElement = `<a href="/user/${data.userAccount.username}" id="profile-link">Profile</a>`;
+        let menu = $('.menu');
+        menu.append(loginElement);
+      },
+      dataType: "json"
+    });
+  }
+  
 
   populateFeed();
 })
