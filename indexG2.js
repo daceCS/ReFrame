@@ -22,7 +22,6 @@ io.on('connection', socket => {
         let obj = new Data(upObj.caption, upObj.postData, upObj.inputType, upObj.userAccount);
         let val = router.db.postData(obj);
         router.db.updateData(upObj.userIndex, obj);
-        router.db.displayData(1);
         io.emit('post-to-feed');
     })
 })
