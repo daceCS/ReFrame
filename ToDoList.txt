@@ -1,0 +1,25 @@
+Things I need to finish for ReFrame
+
+
+- Liking/voting posts: M
+- Sort by options: S - M
+- abiltiy to edit personal profile: M
+	- Change Bio: S
+	- Change Banner Image: S
+	- Change Profile Icon: S
+- ability to follow other profiles: S - M
+- ability to search for other profiles with search bar: L
+
+
+Things I would like to do
+
+- allow comments on posts (with ability to toggle): L
+- Create larger pop-out post when a post is clicked: L
+	Notes: this feature might be easier to do if the post is hosted on another route
+
+
+#sizes of the project
+
+S = small 
+M = medium
+L = large

@@ -103,7 +103,7 @@ router.post('/handle-new-account', (req, res)=>{
     let password = req.body.password;
     let accObj = new Account(username, password)
     let val = db.initAccount(accObj);
-    console.log(accObj);
+    console.log(accObj +"handle new user");
     
     res.json({userServerIndex: val});
 
@@ -120,36 +120,4 @@ module.exports = {
     router: router,
     db: db
 };
-
-// saving this code for later
-/*
-router.delete('/delete/:identifier', function(req, res) {
-    let trimIdentifier = req.params.identifier.trim();
-    if (trimIdentifier == "") {
-        res.json({
-            error: true
-        });
-        return;
-    }
-
-    let identifier = Number(trimIdentifier);
-    if (Number.isNaN(identifier)) {
-        res.json({
-            error: true
-        });
-        return;
-    }
-
-    let val = db.deleteData(identifier);
-    if (val == null)
-        res.json({
-            error: true
-        });
-    else
-        res.json({
-            error: false
-        });
-
-});
-*/
 
