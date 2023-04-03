@@ -1,5 +1,7 @@
+
 const socket = io();
 let postIndex = 0;
+let switchFunction =0;
 socket.on('post-to-feed', ()=>{
   populateFeed()
 })
@@ -33,7 +35,10 @@ function populateFeed(){
                             </div>`
           
          
+          if(switchFunction==0)
           feed.prepend(postContainer) 
+          else
+          feed.append(postContainer) 
           postIndex++;
 
         }
@@ -57,8 +62,10 @@ function populateFeed(){
                               
                             </div>`
               
-          
+          if(switchFunction==0)
           feed.prepend(postContainer) 
+          else
+          feed.append(postContainer) 
           postIndex++;
           
         }
@@ -68,6 +75,16 @@ function populateFeed(){
       
     }
   })
+}
+function sortOld(){
+  console.log("Button sends")
+  switchFunction=1;
+  populateFeed();
+}
+function sortNew(){
+  console.log("Button sends")
+  switchFunction=0;
+  populateFeed();
 }
 function reDirectToCreatePost(){
   window.location.href = '/createPost';
