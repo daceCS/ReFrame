@@ -23,6 +23,7 @@ $(document).ready(()=>{
         allPost = userPageObj.posts;
         userBannerImg = userPageObj.bannerImage;
         userProfileIcon = userPageObj.profileIcon;
+        $('title').html(userPageUsername);
         let postIndex = 0;
         let userCard = `<div class="user-info">
         <img class="banner" src="${userBannerImg}">
