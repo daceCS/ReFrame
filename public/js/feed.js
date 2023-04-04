@@ -8,8 +8,8 @@ $('#search').on('input', function() {
   for(i = 0; i<AllUsersArray.length; i++){
 
   let realHolder = AllUsersArray[i].substring(0,$('#search').val().length);
-  
-    if(realHolder == $('#search').val()){
+  realHolder = realHolder.toLowerCase();
+    if(realHolder == $('#search').val().toLowerCase()){
       console.log("this is the holder " + realHolder); 
     }
   }
@@ -148,5 +148,4 @@ $(document).ready(()=>{
 
   populateFeed();
 })
-
 
