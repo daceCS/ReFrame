@@ -1,6 +1,23 @@
 
 const socket = io();
 
+$('#search').on('input', function() {
+  $.get('/get-all-users',{}, (data) => {
+  let AllUsersArray = data.allAccountsArray;
+  //if name is capitalized, solution; turn everything into lowercase
+  for(i = 0; i<AllUsersArray.length; i++){
+
+  let realHolder = AllUsersArray[i].substring(0,$('#search').val().length);
+  
+    if(realHolder == $('#search').val()){
+      console.log("this is the holder " + realHolder); 
+    }
+  }
+
+
+  })
+});
+
 let switchFunction = 0;
 socket.on('post-to-feed', ()=>{
   populateFeed()
@@ -131,4 +148,5 @@ $(document).ready(()=>{
 
   populateFeed();
 })
+
 
