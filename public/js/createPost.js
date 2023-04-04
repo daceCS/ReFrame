@@ -1,34 +1,7 @@
 let inputType = 0;
 let accountIndex;
 let userAccount;
-/*
-function deleteClicked() {
-    let trimIdentifier = $("#identifier").val().trim();
-    if (trimIdentifier == "") {
-      alert("bad");
-      return false;
-    }
-  
-    $.ajax({
-      url: "/delete/" + $("#identifier").val(),
-      type: "DELETE",
-      success: function (data) {
-        if (data.error)
-          alert("bad");
-        else
-          alert("good");
-      },
-      dataType: "json"
-    });
-    return false;
-  }
-*/
-  function changePreviewCaption(){
-  
-    //Changes caption live in preview
-    let captionValue = $("#caption").val()
-    $("#preview-caption").text(captionValue);
-  }
+
   
   let lastImage;
   let lastText;

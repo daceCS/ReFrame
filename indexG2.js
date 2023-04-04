@@ -26,6 +26,9 @@ io.on('connection', socket => {
         postId++;
         io.emit('post-to-feed');
     })
+    socket.on('like-post', (postObj) =>{
+        
+    })
 })
 
 function generatePostId(){

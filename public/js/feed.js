@@ -25,7 +25,7 @@ function populateFeed(){
                                 
                                 <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%"  class="post-image">
                                 <div id="post-interact-${postIndex}" class="post-interact">
-                                  <input type="button" value="like">
+                                  <input type="button" value="like" onclick="likePost(${postIndex})">
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
                                   
@@ -36,10 +36,10 @@ function populateFeed(){
                             </div>`
           
          
-          if(switchFunction==0)
-          feed.prepend(postContainer) 
+          if(switchFunction == 0)
+            feed.prepend(postContainer) 
           else
-          feed.append(postContainer) 
+            feed.append(postContainer) 
         
 
         }
@@ -54,7 +54,7 @@ function populateFeed(){
                                 </div>
                                 <p id="text-post">${text}</p>
                                 <div id="post-interact-${postIndex}" class="post-interact">
-                                  <input type="button" value="like">
+                                  <input type="button" value="like" onclick="likePost(${postIndex})">
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
                                   
@@ -93,6 +93,9 @@ function reDirectToCreatePost(){
 }
 function signOut(){
   localStorage.clear();
+}
+function likePost(postId){
+  socket.emit();
 }
 $(document).ready(()=>{
   

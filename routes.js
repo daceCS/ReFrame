@@ -96,6 +96,16 @@ router.get('/get-user', (req, res) =>{
     let user = db.getUser(req.query.userIndex);
     res.json({userAccount: user});
 })
+router.get('/get-post-from-id', (req, res)=>{
+    let postId = req.query.postId;
+    let allPost = db.getData(0);
+
+    for(i = 0; i<allPost.length; i++){
+        if(postId == allPost[i].postId){
+            res.json({post: allPost[i]});
+        }
+    }
+})
 
 router.post('/handle-new-account', (req, res)=>{
 
