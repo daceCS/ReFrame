@@ -132,6 +132,10 @@ router.get('/new-dev-env', (req, res) =>{
     res.json({dev: newDevEnvVar-1})
 })
 
+router.put('/updateFollowCount', (req, res) =>{
+    
+})
+
 
 // exports express routes and myDatabase instance
 module.exports = {
