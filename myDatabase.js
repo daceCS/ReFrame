@@ -25,7 +25,7 @@ myDatabase.prototype.displayData = function(type) {
 }
 
 myDatabase.prototype.postData = function(_data) {
-  let obj = new Data(_data.caption, _data.postData, _data.inputType, _data.postedBy);
+  let obj = new Data(_data.caption, _data.postData, _data.inputType, _data.postedBy, _data.postId);
   _data.postedBy.posts[_data.postedBy.postCount] = this.data[dataIndex];
   this.data[dataIndex] = obj;
   _data.postedBy.postCount++;

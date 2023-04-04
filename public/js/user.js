@@ -24,7 +24,6 @@ $(document).ready(()=>{
         userBannerImg = userPageObj.bannerImage;
         userProfileIcon = userPageObj.profileIcon;
         $('title').html(userPageUsername);
-        let postIndex = 0;
         let userCard = `<div class="user-info">
         <img class="banner" src="${userBannerImg}">
         <img class="profileIcon" src="${userProfileIcon}">
@@ -44,6 +43,7 @@ $(document).ready(()=>{
               console.log(image)
               let caption = allPost[i].caption;
               let postedBy = allPost[i].postedBy;
+              let postIndex = allPost[i].postId;
               postContainer = `<div id="post-${postIndex}" class="post-container">
                                     <div class="title">
                                       <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
@@ -63,7 +63,7 @@ $(document).ready(()=>{
               
              
               feed.prepend(postContainer) 
-              postIndex++;
+              
 
              
     
@@ -72,6 +72,7 @@ $(document).ready(()=>{
               let text = allPost[i].postData;
               let caption = allPost[i].caption;
               let postedBy = allPost[i].postedBy;
+              let postIndex = allPost[i].postId;
               postContainer = `<div id="post-${postIndex}" class="post-container">
                                     <div class="title">
                                       <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
@@ -90,7 +91,7 @@ $(document).ready(()=>{
                   
               
               feed.prepend(postContainer) 
-              postIndex++;
+              
               
             }
 

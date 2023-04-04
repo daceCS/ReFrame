@@ -1,7 +1,7 @@
 
 const socket = io();
-let postIndex = 0;
-let switchFunction =0;
+
+let switchFunction = 0;
 socket.on('post-to-feed', ()=>{
   populateFeed()
 })
@@ -17,6 +17,7 @@ function populateFeed(){
           let image = allPost[i].postData;
           let caption = allPost[i].caption;
           let postedBy = allPost[i].postedBy;
+          let postIndex = allPost[i].postId;
           postContainer = `<div id="post-${postIndex}" class="post-container">
                                 <div class="title">
                                   <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
@@ -39,13 +40,14 @@ function populateFeed(){
           feed.prepend(postContainer) 
           else
           feed.append(postContainer) 
-          postIndex++;
+        
 
         }
         else{
           let text = allPost[i].postData;
           let caption = allPost[i].caption;
           let postedBy = allPost[i].postedBy;
+          let postIndex = allPost[i].postId;
           postContainer = `<div id="post-${postIndex}" class="post-container">
                                 <div class="title">
                                   <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
@@ -66,7 +68,7 @@ function populateFeed(){
           feed.prepend(postContainer) 
           else
           feed.append(postContainer) 
-          postIndex++;
+          
           
         }
       
