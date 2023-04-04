@@ -96,6 +96,14 @@ router.get('/get-user', (req, res) =>{
     let user = db.getUser(req.query.userIndex);
     res.json({userAccount: user});
 })
+router.get('/get-all-users', (req, res) =>{
+    let user = db.getData(1);
+    let usernames = [];
+    for(i = 0; i<user.length; i++){
+    usernames[i] = user[i].username;
+    }
+    res.json({allAccountsArray: usernames});
+})
 router.get('/get-post-from-id', (req, res)=>{
     let postId = req.query.postId;
     let allPost = db.getData(0);
@@ -130,4 +138,3 @@ module.exports = {
     router: router,
     db: db
 };
-
