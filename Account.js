@@ -1,4 +1,5 @@
 let Account = function(username, password){
+    this.followers = 0;
     this.username = username;
     this.password = password;
     this.postCount = 0;
