@@ -98,7 +98,7 @@ $(document).ready(()=>{
           
           
       }
-
+    
   });
 
   
@@ -132,9 +132,24 @@ function changeFollowStatus(){
  });
 
  function change() { 
-  if($('#Follow-User').val() == "Unfollow")
-    $('#Follow-User').val("Follow");
-  else if($('#Follow-User').val() == "Follow")
-    $('#Follow-User').val("Unfollow");
+  let pathname = window.location.pathname;
+  let paths = pathname.split('/');
+  let userPage = paths[2];
+      if($('#Follow-User').val() == "Unfollow")
+      {
+
+        $('#Follow-User').val("Follow");
+        $.get('/get-current-users', {username: userPage}, (data)=>{
+          data.account.followers++;
+
+        })
+
+      }
+      else //if($('#Follow-User').val() == "Follow")
+      {
+
+        $('#Follow-User').val("Unfollow");
+
+      }
  }
 }
