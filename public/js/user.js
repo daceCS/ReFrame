@@ -1,6 +1,7 @@
 
 
-
+const socket = io();
+let i;
 
 $(document).ready(()=>{
   let userPageObj;
@@ -126,10 +127,6 @@ $(document).ready(()=>{
 
 });
 
-function changeFollowStatus(){
-  $('#Follow-User').click(function() { 
-    change(); 
- });
 
  function change() { 
   let pathname = window.location.pathname;
@@ -137,19 +134,31 @@ function changeFollowStatus(){
   let userPage = paths[2];
       if($('#Follow-User').val() == "Unfollow")
       {
-
+        
         $('#Follow-User').val("Follow");
         $.get('/get-current-users', {username: userPage}, (data)=>{
-          data.account.followers++;
+          console.log(data.accountIndex);
+          socket.emit('remove-follower',{account:data.accountIndex});
+
+          
 
         })
 
       }
-      else //if($('#Follow-User').val() == "Follow")
+      else 
       {
 
         $('#Follow-User').val("Unfollow");
+        $.get('/get-current-users', {username: userPage}, (data)=>{
+          console.log(data.accountIndex);
+          socket.emit('add-follower',{account:data.accountIndex});
+        })
+          
+
+        
+       // i++;
+       // $("#follow-count").html("Followers: "  + i)
+
 
       }
  }
-}
