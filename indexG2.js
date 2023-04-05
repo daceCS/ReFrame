@@ -29,6 +29,16 @@ io.on('connection', socket => {
     socket.on('like-post', (postObj) =>{
         
     })
+    socket.on('add-follower',(postObj)=>{
+        let account = postObj.account;
+        router.db.updateFollower(account);
+
+    })
+    socket.on('remove-follower',(postObj)=>{
+        let account = postObj.account;
+        router.db.removeFollower(account);
+
+    })
 })
 
 function generatePostId(){
