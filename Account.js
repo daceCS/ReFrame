@@ -9,6 +9,7 @@ let Account = function(username, password){
     let int = Math.floor(Math.random() * 4);
     this.bannerImage = '../images/banner' + int + '.png';
     this.profileIcon = '../images/defaultpfp.jpg';
+    this.likedPost = [];
 }
 
 module.exports = Account;

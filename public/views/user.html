@@ -39,18 +39,7 @@
         <input type="button" id="Follow-User" value="Follow" onclick = "changeFollowStatus()">
       </div>
 
-      <script>
-        $('#Follow-User').click(function() { 
-            change(); 
-         });
-
-         function change() { 
-          if($('#Follow-User').val() == "Unfollow")
-            $('#Follow-User').val("Follow");
-          else if($('#Follow-User').val() == "Follow")
-            $('#Follow-User').val("Unfollow");
-         }
-      </script>
+     
 
       <div class="feed" id="feed"></div>
 
