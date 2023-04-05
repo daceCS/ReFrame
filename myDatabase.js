@@ -39,6 +39,16 @@ myDatabase.prototype.updateData = function(index, post){
   this.accounts[index].posts[this.accounts[index].postCount] = post;
   this.accounts[index].postCount++;
 }
+myDatabase.prototype.updateFollower = function(index){
+  console.log(index);
+  console.log(this.accounts[index]);
+  this.accounts[index].followers++;
+}
+myDatabase.prototype.removeFollower = function(index){
+  console.log(index);
+  console.log(this.accounts[index]);
+  this.accounts[index].followers--;
+}
 myDatabase.prototype.initAccount = function(accObj) {
   this.accounts[accountIndex] = accObj;
   accountIndex++;
