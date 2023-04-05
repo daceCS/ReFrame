@@ -278,7 +278,7 @@ left: 60%;
     margin-right:auto;
     position: absolute;
     left: -23%;
-    top: 11%;
+    top: 5%;
     display: grid;
     place-content: center;
     border-radius: 5px;
@@ -295,8 +295,7 @@ left: 60%;
     left: 75%;
     display: grid;
     place-content: center;
-    border-radius: 5px;
-    
+    border-radius: 5px;   
 }
 
 
