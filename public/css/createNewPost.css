@@ -3,7 +3,7 @@
   margin: 0;
 }
 body {
-    background-color: gray;
+    background-color: #E2D8A5;
 }
 
 #caption{
@@ -63,9 +63,13 @@ form {
   left: 33%;
 }
 #main-post-content{
-  background-color: #000000;
+  background-color: #E1A36F;
   width: 650px;
   height: 400px;
+  border:20px;
+  border-color:#000000;
+  border-radius: 2px;
+  
 }
 #image-div{
   position: absolute;
@@ -186,7 +190,7 @@ fieldset
 }
 header {
    
-  background-color: #24252A;
+  background-color:#46666e;
   height: 50px;
   position: fixed;
   top: 0;
@@ -194,7 +198,7 @@ header {
   z-index: 3000;
 }
 .menu{
-  background-color: black;
+  background-color: #577E89;
   width: 10rem;
   height: 100vh;
   margin: 0;
