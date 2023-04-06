@@ -142,7 +142,10 @@ $(document).ready(()=>{
   let pathname = window.location.pathname;
   let paths = pathname.split('/');
   let userPage = paths[2];
+  let followers;
   let currentUserIndex = localStorage.getItem("clientAccountIndex");
+  
+
       if($('#Follow-User').val() == "Unfollow")
       {
         
@@ -150,11 +153,13 @@ $(document).ready(()=>{
         $.get('/get-current-users', {username: userPage}, (data)=>{
           console.log(data.accountIndex);
           socket.emit('remove-follower',{account:data.accountIndex, clientIndex: currentUserIndex});
-
+          location.reload();
+          
           
 
         })
-
+        
+       
       }
       else 
       {
@@ -163,13 +168,18 @@ $(document).ready(()=>{
         $.get('/get-current-users', {username: userPage}, (data)=>{
           console.log(currentUserIndex);
           socket.emit('add-follower',{account:data.accountIndex, clientIndex: currentUserIndex});
-        })
-          
+          location.reload();
+         
 
+        })
+        
+        
+       
         
        // i++;
        // $("#follow-count").html("Followers: "  + i)
 
 
       }
+      
  }
