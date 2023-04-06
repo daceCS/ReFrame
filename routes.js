@@ -121,7 +121,7 @@ router.post('/handle-new-account', (req, res)=>{
     let password = req.body.password;
     let accObj = new Account(username, password)
     let val = db.initAccount(accObj);
-    console.log(accObj +"handle new user");
+    //console.log(accObj +"handle new user");
     
     res.json({userServerIndex: val});
 
