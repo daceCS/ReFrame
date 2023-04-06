@@ -18,11 +18,10 @@ $(document).ready(()=>{
   let clientUser = localStorage.getItem("clientAccountIndex");
   $.get('/get-user', {userIndex: clientUser}, (data)=>{
     let userFollowList = data.userAccount.following;
-    console.log(userFollowList);
     for(i = 0; i<userFollowList.length; i++){
       if(userFollowList[i] == userPage){
-        $('#Follow-User').val() == "Unfollow";
-        console.log($('#Follow-User').val());
+        $('#Follow-User').val("Unfollow");
+        
       }
     }
   })
@@ -159,10 +158,10 @@ $(document).ready(()=>{
       }
       else 
       {
-
+        // code to add a follower
         $('#Follow-User').val("Unfollow");
         $.get('/get-current-users', {username: userPage}, (data)=>{
-          console.log(data.accountIndex);
+          console.log(currentUserIndex);
           socket.emit('add-follower',{account:data.accountIndex, clientIndex: currentUserIndex});
         })
           
