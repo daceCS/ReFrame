@@ -34,25 +34,23 @@ myDatabase.prototype.postData = function(_data) {
   return true;
 }
 myDatabase.prototype.updateData = function(index, post){
-  console.log(index);
-  console.log(this.accounts[index]);
+  //console.log(index);
+  //console.log(this.accounts[index]);
   this.accounts[index].posts[this.accounts[index].postCount] = post;
   this.accounts[index].postCount++;
 }
 myDatabase.prototype.updateFollower = function(index, clientIndex){
-  console.log(index);
-  console.log(this.accounts[index]);
-  this.accounts[index].followers++;
+  
   let followList = this.accounts[clientIndex].following;
-  for(i = 0; i<followList.length; i++){
-    if(followList[i] == null){
-      followList[i] = this.accounts[index].username;
-    }
-  }
+  
+    
+  followList[this.accounts[clientIndex].followingCount] = this.accounts[index].username;
+  this.accounts[clientIndex].followingCount++;
+  this.accounts[index].followers++;
+  
 }
 myDatabase.prototype.removeFollower = function(index, clientIndex){
-  console.log(index);
-  console.log(this.accounts[index]);
+
   this.accounts[index].followers--;
   let followList = this.accounts[clientIndex].following;
   for(i = 0; i<followList.length; i++){
