@@ -32,6 +32,7 @@ io.on('connection', socket => {
     socket.on('add-follower',(postObj)=>{
         let account = postObj.account;
         let client = postObj.clientIndex;
+        //console.log("client: " + client);
         router.db.updateFollower(account, client);
 
     })
