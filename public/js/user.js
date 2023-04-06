@@ -15,6 +15,17 @@ $(document).ready(()=>{
   let allPost;
   let userBannerImg;
   let userProfileIcon;
+  let clientUser = localStorage.getItem("clientAccountIndex");
+  $.get('/get-user', {userIndex: clientUser}, (data)=>{
+    let userFollowList = data.userAccount.following;
+    console.log(userFollowList);
+    for(i = 0; i<userFollowList.length; i++){
+      if(userFollowList[i] == userPage){
+        $('#Follow-User').val() == "Unfollow";
+        console.log($('#Follow-User').val());
+      }
+    }
+  })
   $.get('/get-current-users', {username: userPage}, (data)=>{
       userPageObj = data.account;
       userPageUsername = userPageObj.username;
@@ -132,13 +143,14 @@ $(document).ready(()=>{
   let pathname = window.location.pathname;
   let paths = pathname.split('/');
   let userPage = paths[2];
+  let currentUserIndex = localStorage.getItem("clientAccountIndex");
       if($('#Follow-User').val() == "Unfollow")
       {
         
         $('#Follow-User').val("Follow");
         $.get('/get-current-users', {username: userPage}, (data)=>{
           console.log(data.accountIndex);
-          socket.emit('remove-follower',{account:data.accountIndex});
+          socket.emit('remove-follower',{account:data.accountIndex, clientIndex: currentUserIndex});
 
           
 
@@ -151,7 +163,7 @@ $(document).ready(()=>{
         $('#Follow-User').val("Unfollow");
         $.get('/get-current-users', {username: userPage}, (data)=>{
           console.log(data.accountIndex);
-          socket.emit('add-follower',{account:data.accountIndex});
+          socket.emit('add-follower',{account:data.accountIndex, clientIndex: currentUserIndex});
         })
           
 

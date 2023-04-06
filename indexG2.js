@@ -31,12 +31,14 @@ io.on('connection', socket => {
     })
     socket.on('add-follower',(postObj)=>{
         let account = postObj.account;
-        router.db.updateFollower(account);
+        let client = postObj.clientIndex;
+        router.db.updateFollower(account, client);
 
     })
     socket.on('remove-follower',(postObj)=>{
         let account = postObj.account;
-        router.db.removeFollower(account);
+        let client = postObj.clientIndex;
+        router.db.removeFollower(account, client);
 
     })
 })
