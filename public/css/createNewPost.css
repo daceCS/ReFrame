@@ -69,19 +69,35 @@ form {
   border:20px;
   border-color:#000000;
   border-radius: 2px;
+  border: 2px solid #071E22;
   
 }
 #image-div{
   position: absolute;
   left: 5%;
   top: 25%;
-  background-color: gray;
+  background-color: #DEC484;
   width: 90%;
   height: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-color:#000000;
+  border: 2px solid #071E22;
+  padding: 0%;
 }
+#text-input{
+  background-color: #DEC484;
+  width: 90%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color:#000000;
+  border: 2px solid #071E22;
+  padding: 0%;
+}
+
 #upload-image{
   font-weight: initial;
   width: 110px;
@@ -91,8 +107,7 @@ form {
   font-family: 'Courier New', Courier, monospace;
   border: 2px solid #071E22;
   background-color: #1D7874;
-  
-  
+
 }
 #uploader{
   width: 100%;
@@ -196,6 +211,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 3000;
+  border: 2px solid #071E22;
 }
 .menu{
   background-color: #577E89;
@@ -204,6 +220,7 @@ header {
   margin: 0;
   position: fixed;
   top: 0;
+  border: 2px solid #071E22;
 }
 
 #topBox{
@@ -224,4 +241,14 @@ legend {
 
 input {
   margin: 0.4rem;
+}
+#HeaderH3{
+  color: #000000;
+  font-size: larger;
+  font-family: Garamond;
+  font-size: 36px;
+	line-height: 36px;
+	text-transform: uppercase;
+  text-align: center;
+	
 }
