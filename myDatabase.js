@@ -59,6 +59,30 @@ myDatabase.prototype.removeFollower = function(index, clientIndex){
     }
   }
 }
+
+myDatabase.prototype.likePost = function(clientIndex, postId){
+
+  let clientLikedPost = this.accounts[clientIndex].likedPost;
+
+  for(i = 0; i<clientLikedPost.length+1; i++){
+    if(clientLikedPost[i] == null){
+      clientLikedPost[i] = postId;
+      return;
+    }
+  }
+}
+
+myDatabase.prototype.unlikePost = function(clientIndex, postId){
+  
+  let clientLikedPost = this.accounts[clientIndex].likedPost;
+
+  for(i = 0; i<clientLikedPost.length; i++){
+    if(clientLikedPost[i] == postId){
+      clientLikedPost[i] = null;
+      return;
+    }
+  }
+}
 myDatabase.prototype.initAccount = function(accObj) {
   this.accounts[accountIndex] = accObj;
   accountIndex++;

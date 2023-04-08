@@ -42,6 +42,15 @@ io.on('connection', socket => {
         router.db.removeFollower(account, client);
 
     })
+
+    socket.on('like-post', (reqObj) =>{
+        router.db.likePost(reqObj.clientIndex, reqObj.postId)
+    });
+
+    socket.on('unlike-post', (reqObj) =>{
+        router.db.unlikePost(reqObj.clientIndex, reqObj.postId)
+
+    });
 })
 
 function generatePostId(){

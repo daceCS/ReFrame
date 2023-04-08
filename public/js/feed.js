@@ -18,6 +18,8 @@ $('#search').on('input', function() {
   })
 });
 
+
+
 let switchFunction = 0;
 socket.on('post-to-feed', ()=>{
   populateFeed()
@@ -42,7 +44,7 @@ function populateFeed(){
                                 
                                 <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%"  class="post-image">
                                 <div id="post-interact-${postIndex}" class="post-interact">
-                                  <input type="button" value="like" onclick="likePost(${postIndex})">
+                                  <input type="button" value="Like" class="like-button" id="like-button-${postIndex}" onclick="likePost(this)">
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
                                   
@@ -53,10 +55,33 @@ function populateFeed(){
                             </div>`
           
          
-          if(switchFunction == 0)
+          if(switchFunction == 0){
             feed.prepend(postContainer) 
-          else
+          }
+          else{
             feed.append(postContainer) 
+            
+          }
+          console.log("test");
+          let client = localStorage.getItem("clientAccountIndex");
+          if(client == null){
+            return;
+          }
+          let likeButton = $('#like-button-' + postIndex);
+
+          $.get('/get-user', {userIndex: client}, (data)=>{
+            let clientLikedPost = data.userAccount.likedPost;
+            
+
+            for(i = 0; i<clientLikedPost.length; i++){
+              console.log(clientLikedPost[i])
+              console.log(postIndex);
+              if(clientLikedPost[i] == postIndex){
+                likeButton.val("Unlike");
+                console.log("reached")
+              }
+            }
+          })  
         
 
         }
@@ -71,7 +96,7 @@ function populateFeed(){
                                 </div>
                                 <p id="text-post">${text}</p>
                                 <div id="post-interact-${postIndex}" class="post-interact">
-                                  <input type="button" value="like" onclick="likePost(${postIndex})">
+                                <input type="button" value="Like" class="like-button" id="like-button-${postIndex}" onclick="likePost(this)">
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
                                   
@@ -81,10 +106,33 @@ function populateFeed(){
                               
                             </div>`
               
-          if(switchFunction==0)
-          feed.prepend(postContainer) 
-          else
-          feed.append(postContainer) 
+          if(switchFunction == 0){
+            feed.prepend(postContainer) 
+          }
+          else{
+            feed.append(postContainer) 
+          }
+          console.log("test");
+          let client = localStorage.getItem("clientAccountIndex");
+          if(client == null){
+            return;
+          }
+          let likeButton = $('#like-button-' + postIndex);
+
+          $.get('/get-user', {userIndex: client}, (data)=>{
+            let clientLikedPost = data.userAccount.likedPost;
+            console.log(clientLikedPost)
+            console.log(postIndex);
+
+            for(i = 0; i<clientLikedPost.length; i++){
+              if(clientLikedPost[i] == postIndex){
+                likeButton.val("Unlike");
+                console.log("reached")
+              }
+            }
+          })
+          
+          
           
           
         }
@@ -111,8 +159,26 @@ function reDirectToCreatePost(){
 function signOut(){
   localStorage.clear();
 }
-function likePost(postId){
-  socket.emit();
+function likePost(postIdRoot){
+  let client = localStorage.getItem("clientAccountIndex");
+  if(client == null){
+    window.location.href = '/login';
+    return;
+  }
+  let postId = postIdRoot.id.split('-')[2];
+  let button = $("#like-button-" + postId);
+  console.log(postId)
+  
+  if(button.val() == 'Like'){
+    button.val("Unlike");
+    socket.emit('like-post', {clientIndex:  client, postId: postId})
+    
+  }
+  else if(button.val() == "Unlike"){
+    button.val("Like");
+    socket.emit('unlike-post', {clientIndex:  client, postId: postId})
+    // create some update to indexg2.js with sockets
+  }
 }
 $(document).ready(()=>{
   
