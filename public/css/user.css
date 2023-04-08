@@ -41,11 +41,11 @@ header {
     font-size: large;
 }
 ::-webkit-scrollbar-track{
-    background: hsl(120 50% 50% / 1);
-}
-::-webkit-scrollbar-thumb{
-    background: hsl(120 100% 20% / 1);
-}
+    background: hsl(214, 94%, 46%);
+  }
+  ::-webkit-scrollbar-thumb{
+    background: hsl(216, 100%, 20%);
+  }
 .post-container {
     display: grid;
     place-items:center;

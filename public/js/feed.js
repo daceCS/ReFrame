@@ -37,6 +37,7 @@ function populateFeed(){
           let caption = allPost[i].caption;
           let postedBy = allPost[i].postedBy;
           let postIndex = allPost[i].postId;
+          let postLikes = allPost[i].votes;
           postContainer = `<div id="post-${postIndex}" class="post-container">
                                 <div class="title">
                                   <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
@@ -45,6 +46,7 @@ function populateFeed(){
                                 <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%"  class="post-image">
                                 <div id="post-interact-${postIndex}" class="post-interact">
                                   <input type="button" value="Like" class="like-button" id="like-button-${postIndex}" onclick="likePost(this)">
+                                  <p id="post-votes-${postIndex}" class="post-votes">Likes: ${postLikes}</p>  
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
                                   
@@ -90,6 +92,7 @@ function populateFeed(){
           let caption = allPost[i].caption;
           let postedBy = allPost[i].postedBy;
           let postIndex = allPost[i].postId;
+          let postLikes = allPost[i].votes;
           postContainer = `<div id="post-${postIndex}" class="post-container">
                                 <div class="title">
                                   <h3 id="post-caption-${postIndex}" class="post-caption">${caption}</h3>
@@ -97,6 +100,7 @@ function populateFeed(){
                                 <p id="text-post">${text}</p>
                                 <div id="post-interact-${postIndex}" class="post-interact">
                                 <input type="button" value="Like" class="like-button" id="like-button-${postIndex}" onclick="likePost(this)">
+                                  <p id="post-votes-${postIndex}" class="post-votes">Likes: ${postLikes}</p>  
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
                                   

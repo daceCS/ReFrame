@@ -1,14 +1,17 @@
 Things I need to finish for ReFrame
 
-
-- Liking/voting posts: M 
+IN PROGRESS --------------------
+- Liking/voting posts: M 90% done
 - Sort by options: S - M 50% done
-- abiltiy to edit personal profile: M 
+- ability to search for other profiles with search bar: L 50% done
+
+
+- abiltiy to edit personal profile: M
 	- Change Bio: S
 	- Change Banner Image: S
 	- Change Profile Icon: S
 
-- ability to search for other profiles with search bar: L
+
 
 
 Things I would like to do

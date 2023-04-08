@@ -164,6 +164,10 @@ $(document).ready(()=>{
       else 
       {
         // code to add a follower
+        if(currentUserIndex == null){
+          window.location.href = '/login';
+          return;
+        }
         $('#Follow-User').val("Unfollow");
         $.get('/get-current-users', {username: userPage}, (data)=>{
           console.log(currentUserIndex);

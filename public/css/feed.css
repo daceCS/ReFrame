@@ -44,6 +44,12 @@ header {
 .post-container::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
+::-webkit-scrollbar-track{
+  background: hsl(214, 94%, 46%);
+}
+::-webkit-scrollbar-thumb{
+  background: hsl(216, 100%, 20%);
+}
 .post-interact {
     position: sticky;
     background-color: darkslategray;
