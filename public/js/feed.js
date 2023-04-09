@@ -1,6 +1,8 @@
 
 const socket = io();
 
+let account;
+
 $('#search').on('input', function() {
   $.get('/get-all-users',{}, (data) => {
   let AllUsersArray = data.allAccountsArray;
@@ -60,11 +62,23 @@ function populateFeed(){
           if(switchFunction == 0){
             feed.prepend(postContainer) 
           }
-          else{
+          else if(switchFunction == 1){
             feed.append(postContainer) 
+          }
+          else if(switchFunction == 2){
+          }
+          else{
+            //console.log(account.following);
+            
+            for(k = 0; k<account.following.length; k++){
+              console.log(account.following[k]);
+              console.log(postedBy.username)
+              if(account.following[k] == postedBy.username){
+                feed.prepend(postContainer);
+              }
+            }
             
           }
-          console.log("test");
           let client = localStorage.getItem("clientAccountIndex");
           if(client == null){
             return;
@@ -76,11 +90,11 @@ function populateFeed(){
             
 
             for(i = 0; i<clientLikedPost.length; i++){
-              console.log(clientLikedPost[i])
-              console.log(postIndex);
+              //console.log(clientLikedPost[i])
+              //console.log(postIndex);
               if(clientLikedPost[i] == postIndex){
                 likeButton.val("Unlike");
-                console.log("reached")
+                //console.log("reached")
               }
             }
           })  
@@ -110,13 +124,18 @@ function populateFeed(){
                               
                             </div>`
               
-          if(switchFunction == 0){
-            feed.prepend(postContainer) 
-          }
-          else{
-            feed.append(postContainer) 
-          }
-          console.log("test");
+                            if(switchFunction == 0){
+                              feed.prepend(postContainer) 
+                            }
+                            else if(switchFunction == 1){
+                              feed.append(postContainer) 
+                            }
+                            else if(switchFunction == 2){
+                            }
+                            else{
+                              
+                            }
+          //console.log("test");
           let client = localStorage.getItem("clientAccountIndex");
           if(client == null){
             return;
@@ -125,13 +144,13 @@ function populateFeed(){
 
           $.get('/get-user', {userIndex: client}, (data)=>{
             let clientLikedPost = data.userAccount.likedPost;
-            console.log(clientLikedPost)
-            console.log(postIndex);
+            //console.log(clientLikedPost)
+            //console.log(postIndex);
 
             for(i = 0; i<clientLikedPost.length; i++){
               if(clientLikedPost[i] == postIndex){
                 likeButton.val("Unlike");
-                console.log("reached")
+                //console.log("reached")
               }
             }
           })
@@ -147,14 +166,20 @@ function populateFeed(){
     }
   })
 }
+function sortNew(){
+  switchFunction=0;
+  populateFeed();
+}
 function sortOld(){
-  console.log("Button sends")
   switchFunction=1;
   populateFeed();
 }
-function sortNew(){
-  console.log("Button sends")
-  switchFunction=0;
+function sortLiked(){
+  switchFunction = 2; 
+  populateFeed();
+}
+function sortFollowing(){
+  switchFunction = 3; 
   populateFeed();
 }
 function reDirectToCreatePost(){
@@ -171,16 +196,30 @@ function likePost(postIdRoot){
   }
   let postId = postIdRoot.id.split('-')[2];
   let button = $("#like-button-" + postId);
-  console.log(postId)
+  let element = $("#post-votes-" + postId);
+  //console.log(postId)
   
   if(button.val() == 'Like'){
     button.val("Unlike");
     socket.emit('like-post', {clientIndex:  client, postId: postId})
+    let test = element.html().split(" ");
+    let number = parseInt(test[1])
+    number++;
+
+    element.html("Likes: " + number)
+    
     
   }
   else if(button.val() == "Unlike"){
     button.val("Like");
     socket.emit('unlike-post', {clientIndex:  client, postId: postId})
+
+    let test = element.html().split(" ");
+    let number = parseInt(test[1])
+    number--;
+
+    element.html("Likes: " + number)
+    
     // create some update to indexg2.js with sockets
   }
 }
@@ -206,7 +245,8 @@ $(document).ready(()=>{
   
       },
       success: (data) => {
-        console.log(data.userAccount)
+        //console.log(data.userAccount)
+        account = data.userAccount;
         let loginElement = `<a href="/user/${data.userAccount.username}" id="profile-link">Profile</a>`;
         let menu = $('.menu');
         menu.append(loginElement);

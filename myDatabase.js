@@ -110,7 +110,6 @@ myDatabase.prototype.getData = function(type) { // pass in type parameter to cho
     return this.accounts;
   }
 }
-
 myDatabase.prototype.putData = function(_data) {
   for (let i = 0; i < this.data.length; i++) {
       if (this.data[i] && this.data[i].ident == _data.ident) {

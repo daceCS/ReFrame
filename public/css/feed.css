@@ -6,19 +6,28 @@
     --post-container-height: 650px
 }
 body {
-    background-color: rgb(27, 27, 27);
-    padding: 0;
-    overflow-x: hidden;
-    
+  /*
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/228/844/890/sea-beach-the-sun-sunset-wallpaper-preview.jpg");
+  background-color: #cccccc;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+  */
+  background-color: #E2D8A5;
+  padding: 0;
+  overflow-x: hidden;
+  
 }
 header {
    
-    background-color: #8899f0;
-    height: 60px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 3000;
+  background-color: #46666e;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3000;
+  border: 2px solid #071E22;
 }
 ::-webkit-scrollbar{
     width: 5px;
@@ -30,76 +39,74 @@ header {
     background: hsl(120 100% 20% / 1);
 }
 .post-container {
-    display: grid;
-    place-items:center;
-    background-color: #679289;
-    width: 500px;
-    max-height: 650px;
-    margin: 10px auto;
-    overflow-x: hidden;
-    font-family: Garamond;
-    font-size: large;
-    
+  display: grid;
+  place-items:center;
+  background-color: #DEC484;
+  width: 500px;
+  max-height: 650px;
+  margin: 10px auto;
+  overflow-x: hidden;
+  font-family: Garamond;
+  font-size: large;
+  border: 2px solid #071E22;
+  
 }
 .post-container::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
-}
-::-webkit-scrollbar-track{
-  background: hsl(214, 94%, 46%);
-}
-::-webkit-scrollbar-thumb{
-  background: hsl(216, 100%, 20%);
+  display: none;  /* Safari and Chrome */
 }
 .post-interact {
-    position: sticky;
-    background-color: darkslategray;
-    width: 100%;
-    margin: 0;
-    height: 40px;
-    bottom: 0%;
+  position: sticky;
+  background-color: #E1A36F;
+  width: 100%;
+  margin: 0;
+  height: 40px;
+  bottom: 0%;
+  border: 2px solid #071E22;
 
 }
 
 
 .title{
-    position: sticky;
-    background-color: darkslategray;
-    width: 100%;
-    margin: 0;
-    height: 40px;
-    top: 0%;
-    z-index: 100;
+  position: sticky;
+  background-color: #E1A36F;
+  width: 100%;
+  margin: 0;
+  height: 40px;
+  top: 0%;
+  z-index: 100;
+  border: 1px solid #071E22;
 }
 .post-image{    
-    position: relative;
-    padding: 30px;
-    top: 1%;
+  position: relative;
+  padding: 30px;
+  top: 1%;
 
 }
 .menu{
-    background-color: black;
-    width: 10rem;
-    height: 100vh;
-    margin: 0;
-    position: fixed;
-    top: 0;
+  background-color: #577E89;
+  width: 10rem;
+  height: 100vh;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  border: 2px solid #071E22;
 }
 .user-id{
-    position: absolute;
-    top: 0%;
-    left: 30%;
+  position: absolute;
+  top: 0%;
+  left: 30%;
 }
 #sort-top-voted{
-    position: absolute;
-    top: 20px;
-    left: 10px;
-    margin-top: 5px;
-    margin-left: 110px;
-    font-family: "Summer Beach", 'sans-serif';
-    text-align: center;
-    display:flex;
-    scale:1.3;
-    appearance: none;
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  margin-top: 5px;
+  margin-left: 110px;
+  font-family: "Summer Beach", 'sans-serif';
+  text-align: center;
+  display:flex;
+  scale:1.3;
+  appearance: none;
   background-color: #FCFCFD;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
   box-sizing: border-box;
@@ -420,18 +427,19 @@ header {
     padding: 20px auto;
 }
 #content-options {
-    background-color: cadetblue;
-    width: 500px;
-    height: 58px;
-    margin-left: auto;
-    margin-right:auto;
-    position: absolute;
-    top: 17.5%;
-    left: 37%;
-    display: grid;
-    place-content: center;
-    border-radius: 5px;
-    
+  background-color: #E1A36F;
+  width: 498px;
+  height: 58px;
+  margin-left: auto;
+  margin-right:auto;
+  position: absolute;
+  top: 17%;
+  left: 37%;
+  display: grid;
+  place-content: center;
+  border-radius: 5px;
+  border: 2px solid #071E22;
+  
 }
 
 #sign-out {
