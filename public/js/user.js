@@ -18,15 +18,7 @@ $(document).ready(()=>{
   let userBannerImg;
   let userProfileIcon;
   let clientUser = localStorage.getItem("clientAccountIndex");
-  $.get('/get-user', {userIndex: clientUser}, (data)=>{
-    let userFollowList = data.userAccount.following;
-    for(i = 0; i<userFollowList.length; i++){
-      if(userFollowList[i] == userPage){
-        $('#Follow-User').val("Unfollow");
-        
-      }
-    }
-  })
+  
   $.get('/get-current-users', {username: userPage}, (data)=>{
       userPageObj = data.account;
       userPageUsername = userPageObj.username;
@@ -38,8 +30,13 @@ $(document).ready(()=>{
       userProfileIcon = userPageObj.profileIcon;
       $('title').html(userPageUsername);
       let userCard = `<div class="user-info">
+      <div class="banner-class">
       <img class="banner" src="${userBannerImg}">
+      <input type="button" onclick="chnageBanner()" value="Change Banner" id="change-banner">
+      </div>
+      <div class="profileIcon-class">
       <img class="profileIcon" src="${userProfileIcon}">
+      </div>
       <p id="username">${userPageUsername}</p>
       <p id="follow-count">Followers: ${userPageFollowCount}</p>
       <p id="post-count">Posts: ${userPagePostCount}</p>
@@ -54,6 +51,21 @@ $(document).ready(()=>{
       
     
   });
+  $.get('/get-user', {userIndex: clientUser}, (data)=>{
+    let userFollowList = data.userAccount.following;
+    for(i = 0; i<userFollowList.length; i++){
+      if(userFollowList[i] == userPage){
+        $('#Follow-User').val("Unfollow");
+        
+      }
+    }
+    if(data.userAccount.username == userPage){
+      let userInfo = $('.user-info');
+      
+      userInfo.append(`<input type="button" onclick="saveChanges()" value="Save" id="save-button">`)
+    }
+    
+  })
 
   
 
