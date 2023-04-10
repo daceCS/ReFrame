@@ -132,4 +132,39 @@ myDatabase.prototype.deleteData = function(ident) {
   return null;
 }
 
+myDatabase.prototype.getSortedPosts = function(array){
+
+
+  return sortPostsByLikes(array);
+}
+function sortPostsByLikes(array){ // pass in all posts (this.data)
+  let posts = array;
+  let leftArr = [];
+  let rightArr = [];
+
+  if(posts.length == 1 || posts.length == 0){
+    return posts;
+  }
+
+  let pivot = posts[posts.length-1];
+
+  for(let i = 0; i < posts.length-1; i++){
+    if(posts[i].votes < pivot.votes){
+      leftArr.push(posts[i]);
+    }else{
+      rightArr.push(posts[i])
+    }
+  }
+
+  if(leftArr.length > 0 && rightArr.length > 0){
+    return [...sortPostsByLikes(leftArr), pivot, ...sortPostsByLikes(rightArr)];
+  } else if(leftArr.length > 0){
+    return [...sortPostsByLikes(leftArr), pivot];
+  } else {
+    return [pivot, ...sortPostsByLikes(rightArr)];
+  }
+
+
+}
+
 module.exports = myDatabase;

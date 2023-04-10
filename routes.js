@@ -115,6 +115,12 @@ router.get('/get-post-from-id', (req, res)=>{
     }
 })
 
+router.get('/get-sorted-posts', (req, res) =>{
+    posts = req.query.allPosts; 
+    sortedPosts = db.getSortedPosts(posts);
+    res.json({sortedPosts: sortedPosts});
+})
+
 router.post('/handle-new-account', (req, res)=>{
 
     let username = req.body.username;
@@ -125,11 +131,6 @@ router.post('/handle-new-account', (req, res)=>{
     
     res.json({userServerIndex: val});
 
-})
-
-router.get('/new-dev-env', (req, res) =>{
-    newDevEnvVar++;
-    res.json({dev: newDevEnvVar-1})
 })
 
 router.put('/updateFollowCount', (req, res) =>{
