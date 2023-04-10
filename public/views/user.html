@@ -15,7 +15,10 @@
     <header>
         <nav>
           <input type="button" value="Sign Out" id="sign-out" onclick="signOut()">
-          <input type="text" id="search" placeholder="Search Users">
+          <form action = "" class = "search-bar">
+            <input type="text" id="search" placeholder="Search Users" name ="SearchStuff" autocomplete="off" oninput="searchBar()">
+            <button type = "submit" id = "searchbutton"><img src = "../images/search.png"></button>
+        </form>
         </nav>
       </header>
       <aside>
