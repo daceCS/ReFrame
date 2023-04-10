@@ -11,6 +11,11 @@ function createAccount(){
     let username = $("#username").val();
     let password = $("#password").val();
 
+    if(username == ""){
+      alert("Please enter in a username that includes at least 1 character");
+      return;  
+    }
+
     if(password == ""){
       return;
     }
