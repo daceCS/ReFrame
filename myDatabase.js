@@ -133,7 +133,18 @@ myDatabase.prototype.deleteData = function(ident) {
   }
   return null;
 }
-
+myDatabase.prototype.updateUserPost = function(username){
+  let posts = this.data;
+  let userPosts = [];
+  let index = 0;
+  for(let i = 0; i<posts.length; i++){
+    if(posts[i].postedBy.username == username){
+      userPosts[index] = posts[i];
+      index++;
+    }
+  }
+  return userPosts;
+}
 myDatabase.prototype.getSortedPosts = function(array) {
 
 

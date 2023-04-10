@@ -19,6 +19,9 @@ body {
     overflow-x: hidden;
     
 }
+a {
+  text-decoration: none !important;
+}
 header {
    
     background-color: #46666e;
@@ -109,7 +112,7 @@ header {
     top: 20px;
     left: 10px;
     margin-top: 5px;
-    margin-left: 110px;
+    margin-left: 10px;
     font-family: "Summer Beach", 'sans-serif';
     text-align: center;
     display:flex;
@@ -205,7 +208,7 @@ header {
       top: 20px;
       left: 10px;
       margin-top: 5px;
-      margin-left: 216px;
+      margin-left: 116px;
       font-family: "Summer Beach", 'sans-serif';
       text-align: center;
       display:flex;
@@ -253,7 +256,7 @@ header {
       top: 20px;
       left: 10px;
       margin-top: 5px;
-      margin-left: 310px;
+      margin-left: 210px;
       font-family: "Summer Beach", 'sans-serif';
       text-align: center;
       display:flex;
@@ -368,8 +371,13 @@ header {
     right: 11px;
 }
 .user-link{
-    position: absolute;
-    left: 42%
+  position: absolute;
+  left: 42%;
+  top: 0%;
+}
+a:visited {
+  color: black;
+  
 }
 #create-post-interaction {
     background-color: #E1A36F;
@@ -501,7 +509,9 @@ left: 60%;
     background-color: #1D7874;
      
 }
-
+a:hover{
+  color: #e47418;
+}
 
 
 

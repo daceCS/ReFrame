@@ -85,7 +85,7 @@ router.get('/get-current-users', (req, res) =>{
  
     for(i = 0; i<accounts.length; i++){
         if(req.query.username == accounts[i].username){
-        
+            accounts[i].posts = db.updateUserPost(accounts[i].username);
             res.json({userExist: true, account: accounts[i], accountIndex: i})
             return;
         }

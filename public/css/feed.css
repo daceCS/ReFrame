@@ -19,6 +19,10 @@ body {
   overflow-x: hidden;
   
 }
+a {
+  text-decoration: none !important;
+}
+
 header {
    
   background-color: #46666e;
@@ -362,7 +366,12 @@ header {
 }
 .user-link{
     position: absolute;
-    left: 42%
+    left: 42%;
+    top: 0%;
+}
+a:visited {
+  color: black;
+  
 }
 #create-post-interaction {
     background-color: cadetblue;
@@ -512,8 +521,9 @@ header {
       line-height: 50px;
     }
   }
-
-
+  a:hover{
+    color: #e47418;
+  }
 
 
  

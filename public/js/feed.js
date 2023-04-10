@@ -199,7 +199,7 @@ function populateFeed() {
                               
                             </div>`
 
-
+                console.log(allPost[i])
                 if (switchFunction == 0) {
                     feed.prepend(postContainer)
                 } else if (switchFunction == 1) {

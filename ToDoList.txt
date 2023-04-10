@@ -1,10 +1,11 @@
 Things I need to finish for ReFrame
 
 IN PROGRESS --------------------
-- Liking/voting posts: M 100% done IMPLEMENT ON USER PAGE
-- Sort by options: S - M 100% done IMPLEMENT ON USER PAGE
+
 - ability to search for other profiles with search bar: L 50% done
 
+
+NEEDS TO BE DONE -------------------------
 
 - abiltiy to edit personal profile: M
 	- Change Bio: S
