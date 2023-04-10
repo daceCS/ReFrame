@@ -227,24 +227,26 @@ function populateFeed(){
 
                       let client = localStorage.getItem("clientAccountIndex");
                       if (client == null) {
-                          return;
+                          
                       }
-                      let likeButton = $('#like-button-' + postIndex);
-
-                      $.get('/get-user', {
-                          userIndex: client
-                      }, (data) => {
-                          let clientLikedPost = data.userAccount.likedPost;
-
-
-                          for (i = 0; i < clientLikedPost.length; i++) {
-
-                              if (clientLikedPost[i] == postIndex) {
-                                  likeButton.val("Unlike");
-
-                              }
-                          }
-                      })
+                      else {
+                        let likeButton = $('#like-button-' + postIndex);
+    
+                        $.get('/get-user', {
+                            userIndex: client
+                        }, (data) => {
+                            let clientLikedPost = data.userAccount.likedPost;
+        
+        
+                            for (i = 0; i < clientLikedPost.length; i++) {
+        
+                                if (clientLikedPost[i] == postIndex) {
+                                    likeButton.val("Unlike");
+        
+                                }
+                            }
+                        })
+                    }
 
 
                   } else {
@@ -279,24 +281,26 @@ function populateFeed(){
                       //console.log("test");
                       let client = localStorage.getItem("clientAccountIndex");
                       if (client == null) {
-                          return;
+                          
                       }
-                      let likeButton = $('#like-button-' + postIndex);
-
-                      $.get('/get-user', {
-                          userIndex: client
-                      }, (data) => {
-                          let clientLikedPost = data.userAccount.likedPost;
-                          //console.log(clientLikedPost)
-                          //console.log(postIndex);
-
-                          for (i = 0; i < clientLikedPost.length; i++) {
-                              if (clientLikedPost[i] == postIndex) {
-                                  likeButton.val("Unlike");
-                                  //console.log("reached")
-                              }
-                          }
-                      })
+                      else {
+                        let likeButton = $('#like-button-' + postIndex);
+    
+                        $.get('/get-user', {
+                            userIndex: client
+                        }, (data) => {
+                            let clientLikedPost = data.userAccount.likedPost;
+        
+        
+                            for (i = 0; i < clientLikedPost.length; i++) {
+        
+                                if (clientLikedPost[i] == postIndex) {
+                                    likeButton.val("Unlike");
+        
+                                }
+                            }
+                        })
+                    }
 
 
 
@@ -355,24 +359,26 @@ function populateFeed(){
               }
               let client = localStorage.getItem("clientAccountIndex");
               if (client == null) {
-                  return;
+                  
               }
-              let likeButton = $('#like-button-' + postIndex);
+              else {
+                let likeButton = $('#like-button-' + postIndex);
 
-              $.get('/get-user', {
-                  userIndex: client
-              }, (data) => {
-                  let clientLikedPost = data.userAccount.likedPost;
+                $.get('/get-user', {
+                    userIndex: client
+                }, (data) => {
+                    let clientLikedPost = data.userAccount.likedPost;
 
 
-                  for (i = 0; i < clientLikedPost.length; i++) {
+                    for (i = 0; i < clientLikedPost.length; i++) {
 
-                      if (clientLikedPost[i] == postIndex) {
-                          likeButton.val("Unlike");
+                        if (clientLikedPost[i] == postIndex) {
+                            likeButton.val("Unlike");
 
-                      }
-                  }
-              })
+                        }
+                    }
+                })
+            }
 
 
           } else {
@@ -416,24 +422,26 @@ function populateFeed(){
               //console.log("test");
               let client = localStorage.getItem("clientAccountIndex");
               if (client == null) {
-                  return;
+                  
               }
-              let likeButton = $('#like-button-' + postIndex);
+              else {
+                let likeButton = $('#like-button-' + postIndex);
 
-              $.get('/get-user', {
-                  userIndex: client
-              }, (data) => {
-                  let clientLikedPost = data.userAccount.likedPost;
-                  //console.log(clientLikedPost)
-                  //console.log(postIndex);
+                $.get('/get-user', {
+                    userIndex: client
+                }, (data) => {
+                    let clientLikedPost = data.userAccount.likedPost;
 
-                  for (i = 0; i < clientLikedPost.length; i++) {
-                      if (clientLikedPost[i] == postIndex) {
-                          likeButton.val("Unlike");
-                          //console.log("reached")
-                      }
-                  }
-              })
+
+                    for (i = 0; i < clientLikedPost.length; i++) {
+
+                        if (clientLikedPost[i] == postIndex) {
+                            likeButton.val("Unlike");
+
+                        }
+                    }
+                })
+            }
 
 
 
