@@ -17,9 +17,12 @@
       <nav>
         <input type="button" value="Sign Out" id="sign-out" onclick="signOut()">
           <form action = "" class = "search-bar">
-              <input type="text" id="search" placeholder="Search Users" name ="SearchStuff" autocomplete="off">
+              <input type="text" id="search" placeholder="Search Users" name ="SearchStuff" autocomplete="off" oninput="searchBar()">
               <button type = "submit" id = "searchbutton"><img src = "../images/search.png"></button>
           </form>
+          <div class="dropdown">
+           
+          </div>
       </nav>
     </header>
     <aside>
@@ -30,7 +33,7 @@
         </nav>
       </div>
     </aside>
-
+    
     <div id="create-post-interaction">
       
       <input type="text" id="create-post-interact-field" placeholder="Create Post" onclick="reDirectToCreatePost()">
