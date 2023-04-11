@@ -346,6 +346,7 @@ function reDirectToCreatePost() {
 
 function signOut() {
     localStorage.clear();
+    window.location.href = '/login'
 }
 
 function likePost(postIdRoot) {
