@@ -69,7 +69,13 @@ function populateFeed() {
                                 
                                 <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%"  class="post-image">
                                 <div id="post-interact-${postIndex}" class="post-interact">
-                                  <input type="button" value="Like" class="like-button" id="like-button-${postIndex}" onclick="likePost(this)">
+                                  
+                                <button class="button-like" value="Like" id="like-button-${postIndex}" onclick="likePost(this)">
+                                <i class="fa fa-heart"></i>
+                                <span></span>
+                                </button>
+
+
                                   <p id="post-votes-${postIndex}" class="post-votes">Likes: ${postLikes}</p>  
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
@@ -124,7 +130,13 @@ function populateFeed() {
                                 </div>
                                 <p id="text-post">${text}</p>
                                 <div id="post-interact-${postIndex}" class="post-interact">
-                                <input type="button" value="Like" class="like-button" id="like-button-${postIndex}" onclick="likePost(this)">
+                                
+
+                                <button class="button-like" value="Like" id="like-button-${postIndex}" onclick="likePost(this)">
+                                <i class="fa fa-heart"></i>
+                                <span>Like</span>
+                                </button>
+
                                   <p id="post-votes-${postIndex}" class="post-votes">Likes: ${postLikes}</p>  
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
@@ -192,7 +204,13 @@ function populateFeed() {
                                 
                                 <img src="${image}" id="post-image-${postIndex}" height="auto" width="90%"  class="post-image">
                                 <div id="post-interact-${postIndex}" class="post-interact">
-                                  <input type="button" value="Like" class="like-button" id="like-button-${postIndex}" onclick="likePost(this)">
+                               
+
+                                <button class="button-like" value="Like" id="like-button-${postIndex}" onclick="likePost(this)">
+                                <i class="fa fa-heart"></i>
+                                <span></span>
+                                </button>
+
                                   <p id="post-votes-${postIndex}" class="post-votes">Likes: ${postLikes}</p>  
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
@@ -258,7 +276,14 @@ function populateFeed() {
                                 </div>
                                 <p id="text-post">${text}</p>
                                 <div id="post-interact-${postIndex}" class="post-interact">
-                                <input type="button" value="Like" class="like-button" id="like-button-${postIndex}" onclick="likePost(this)">
+                              
+
+                                <button class="button-like" value="Like" id="like-button-${postIndex}" onclick="likePost(this)">
+                                <i class="fa fa-heart"></i>
+                                <span></span>
+                                </button>
+
+
                                   <p id="post-votes-${postIndex}" class="post-votes">Likes: ${postLikes}</p>  
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
@@ -371,6 +396,7 @@ function likePost(postIdRoot) {
         number++;
 
         element.html("Likes: " + number)
+        $('.button-like').addClass('liked').removeClass('button-like');
 
 
     } else if (button.val() == "Unlike") {
@@ -385,6 +411,7 @@ function likePost(postIdRoot) {
         number--;
 
         element.html("Likes: " + number)
+        $('.liked').addClass('button-like').removeClass('liked');
 
         // create some update to indexg2.js with sockets
     }
