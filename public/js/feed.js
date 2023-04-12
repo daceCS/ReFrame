@@ -75,8 +75,9 @@ function populateFeed() {
                                 <span></span>
                                 </button>
 
-
+                                <div>
                                   <p id="post-votes-${postIndex}" class="post-votes">Likes: ${postLikes}</p>  
+                                </div>
                                   <p id="user-id-${postIndex}" class="user-id">Post By: </p>  
                                   <a href="/user/${postedBy.username}" class="user-link">${postedBy.username}</a>
                                   
@@ -111,6 +112,8 @@ function populateFeed() {
             
                                     if (clientLikedPost[i] == postIndex) {
                                         likeButton.val("Unlike");
+                                        $('.button-like').addClass('liked').removeClass('button-like');
+
             
                                     }
                                 }
@@ -171,6 +174,7 @@ function populateFeed() {
             
                                     if (clientLikedPost[i] == postIndex) {
                                         likeButton.val("Unlike");
+                                        $('.button-like').addClass('liked').removeClass('button-like');
             
                                     }
                                 }
@@ -256,6 +260,7 @@ function populateFeed() {
     
                             if (clientLikedPost[i] == postIndex) {
                                 likeButton.val("Unlike");
+                                $('.button-like').addClass('liked').removeClass('button-like');
     
                             }
                         }
@@ -328,6 +333,8 @@ function populateFeed() {
 
                         if (clientLikedPost[i] == postIndex) {
                             likeButton.val("Unlike");
+                            $('.button-like').addClass('liked').removeClass('button-like');
+                            
 
                         }
                     }
@@ -451,3 +458,4 @@ $(document).ready(() => {
 
     populateFeed();
 })
+
