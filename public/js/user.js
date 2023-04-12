@@ -32,7 +32,6 @@ $(document).ready(()=>{
       let userCard = `<div class="user-info">
       <div class="banner-class">
       <img class="banner" src="${userBannerImg}">
-      <input type="button" onclick="chnageBanner()" value="Change Banner" id="change-banner">
       </div>
       <div class="profileIcon-class">
       <img class="profileIcon" src="${userProfileIcon}">
@@ -61,8 +60,16 @@ $(document).ready(()=>{
     }
     if(data.userAccount.username == userPage){
       let userInfo = $('.user-info');
-      
-      userInfo.append(`<input type="button" onclick="saveChanges()" value="Save" id="save-button">`)
+      let banner = $('.banner-class');
+      let bio = $('#bio');
+      let bioVal = $('#bio').text()
+      console.log(bioVal)
+
+
+      banner.append(`<input type="button" onclick="changeBanner()" value="Change Banner" id="banner-button">`);
+      banner.append(`<input type="button" onclick="ChangeIcon"()" value="Change Profile Icon" id="icon-button">`);
+      bio.html(` <textarea name="text input" id="text-input" cols="32" rows="6">${bioVal}</textarea>`);
+      userInfo.append(`<input type="button" onclick="saveChanges()" value="Save Changes" id="save-button">`)
     }
     
   })
@@ -94,6 +101,15 @@ $(document).ready(()=>{
 
 });
 
+function changeBanner(){
+
+}
+function ChangeIcon(){
+
+}
+function saveChanges(){
+
+}
 
  function change() { 
   let pathname = window.location.pathname;
