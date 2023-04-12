@@ -156,7 +156,7 @@ function sortPostsByLikes(array) { // pass in all posts (this.data)
   let leftArr = [];
   let rightArr = [];
 
-  if (posts.length == 1 || posts.length == 0) {
+  if (posts == null || posts.length == 1) {
       return posts;
   }
 
