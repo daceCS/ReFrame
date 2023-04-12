@@ -55,6 +55,14 @@ header {
   border: 2px solid #071E22;
   
 }
+
+.post-votes{
+  position:absolute;
+  top:0%;
+  right:78%
+}
+
+
 .post-container::-webkit-scrollbar { 
   display: none;  /* Safari and Chrome */
 }
