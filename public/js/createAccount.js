@@ -1,4 +1,5 @@
 let clientAccountServerIndex;
+
 $('#username').on('keypress', function (event) {
   var regex = new RegExp("^[a-zA-Z0-9]+$");
   var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
@@ -16,7 +17,13 @@ function createAccount(){
       return;  
     }
 
+    if(username.includes("/") || username.includes("\\")){
+      alert("Please don't include / or \\ in the username");
+      return;  
+    }
+
     if(password == ""){
+      alert("Please put a password");
       return;
     }
     $.ajax({
