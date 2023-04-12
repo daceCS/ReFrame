@@ -17,23 +17,24 @@ function searchBar(){
         
         let realHolder = AllUsersArray[i].substring(0, $('#search').val().length);
         realHolder = realHolder.toLowerCase();
-        let dropdownElement = ` <div class="dropdown-element">
-          <p>${AllUsersArray[i]}</p>
-          </div>`;
+        let dropdownElement = ` <a href="user/${AllUsersArray[i]}"  class="dropdown-element" /a> <p>${AllUsersArray[i]}</p>`;
+           
         if (realHolder == $('#search').val().toLowerCase()) {
             dropdown.append(dropdownElement);
             num++;
-            
-            
-        }else if(realHolder == ""){
-          dropdown.empty();
         }
+            
+        if(realHolder == ""){
+            dropdown.empty();
+        }
+      
         //console.log(num);
     }
 
 
 })
 }
+
 
 
 
