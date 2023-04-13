@@ -138,7 +138,7 @@ function populateFeed() {
 
                                 <button class="button-like" value="Like" id="like-button-${postIndex}" onclick="likePost(this)">
                                 <i class="fa fa-heart"></i>
-                                <span>Like</span>
+                                <span></span>
                                 </button>
 
                                   <p id="post-votes-${postIndex}" class="post-votes">Likes: ${postLikes}</p>  
