@@ -558,24 +558,28 @@ function searchBar(){
   $.get('/get-all-users', {}, (data) => {
     let AllUsersArray = data.allAccountsArray;
     let dropdown = $(".dropdown");
-    
-    let num = 0; 
+    let dropdownReal = $("#dropdown-list");
+    let num = 0;
     
     
     //if name is capitalized, solution; turn everything into lowercase
     //console.log(AllUsersArray)
+    dropdownReal.empty();
     for (i = 0; i < AllUsersArray.length; i++) {
         
         
-        let dropdownElement = ` <a href="user/${AllUsersArray[i]}"  class="dropdown-element" /a> <p>${AllUsersArray[i]}</p>`;
+        let dropdownElement = `<li>
+        <a href="user/${AllUsersArray[i]}"  class="dropdown-element" /a> <p>${AllUsersArray[i]}</p>
+      </li>`;
 
+        
         if (AllUsersArray[i].toLowerCase().startsWith($('#search').val().toLowerCase())) {
-            dropdown.append(dropdownElement);
+            dropdownReal.append(dropdownElement);
             num++;
         }
-            
+
         if($('#search').val() == ""){
-            dropdown.empty();
+            dropdownReal.empty();
         }
       
         //console.log(num);
