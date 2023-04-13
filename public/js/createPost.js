@@ -128,16 +128,15 @@ let userAccount;
       //console.log(AllUsersArray)
       for (i = 0; i < AllUsersArray.length; i++) {
           
-          let realHolder = AllUsersArray[i].substring(0, $('#search').val().length);
-          realHolder = realHolder.toLowerCase();
+          
           let dropdownElement = ` <a href="user/${AllUsersArray[i]}"  class="dropdown-element" /a> <p>${AllUsersArray[i]}</p>`;
-             
-          if (realHolder == $('#search').val().toLowerCase()) {
+  
+          if (AllUsersArray[i].toLowerCase().startsWith($('#search').val().toLowerCase())) {
               dropdown.append(dropdownElement);
               num++;
           }
               
-          if(realHolder == ""){
+          if($('#search').val() == ""){
               dropdown.empty();
           }
         
@@ -147,6 +146,7 @@ let userAccount;
   
   })
   }
+  
   
   function signOut() {
     localStorage.clear();
