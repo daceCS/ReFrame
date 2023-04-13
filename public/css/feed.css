@@ -639,5 +639,28 @@ a:visited {
   .liked:hover span {
     color: #fefefe;
   }
+.Palm{
+  position: sticky;
+  scale: 1.25;
+  top: 240px;
+  right: 50px;
+  z-index: -90;
+  position: fixed;
+
   
+  
+}
+.Seagull{
+  position: sticky;
+  scale: .25;
+  top: -60px;
+  right: 50px;
+  z-index: -90;
+  position: fixed;
+
+  
+  
+}
+
+
   
