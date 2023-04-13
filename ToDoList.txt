@@ -13,13 +13,9 @@ NEEDS TO BE DONE -------------------------
 	- Change Profile Icon: S
 
 
+ISSUES -----------------------------------
+- like button bug
 
-
-Things I would like to do
-
-- allow comments on posts (with ability to toggle): L
-- Create larger pop-out post when a post is clicked: L
-	Notes: this feature might be easier to do if the post is hosted on another route
 
 
 #sizes of the project
