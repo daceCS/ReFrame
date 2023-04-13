@@ -80,20 +80,6 @@ header {
   cursor: pointer;
   padding: 20px auto;
 }
-
-.dropdown-element{
-  position: absolute;
-  left: 25.7%;
-
-  background-color: #071E22;
-  width: 47%;
-  height: 70%;
-  
-}
-.dropdown-element p {
-  color: white;
-}
-
 ::-webkit-scrollbar-track{
     background: hsl(214, 94%, 46%);
   }
@@ -712,8 +698,28 @@ opacity: .75;
   color: #fefefe;
 }
 
+.Palm{
+  position: sticky;
+  scale: 1.25;
+  top: 240px;
+  left: 210px;
+  z-index: -90;
+  position: fixed;
 
+  
+  
+}
+.Seagull{
+  position: sticky;
+  scale: .25;
+  top: -60px;
+  left: 90px;
+  z-index: -90;
+  position: fixed;
 
+  
+  
+}
 
 
 
