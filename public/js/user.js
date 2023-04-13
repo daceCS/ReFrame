@@ -5,7 +5,6 @@ let i;
 let switchFunction = 0;
 let bio; 
 
-
 $(document).ready(()=>{
   let userPageObj;
   let pathname = window.location.pathname;
@@ -553,4 +552,41 @@ function sortLiked() {
 function sortFollowing() {
   switchFunction = 3;
   populateFeed();
+}
+
+function searchBar(){
+  $.get('/get-all-users', {}, (data) => {
+    let AllUsersArray = data.allAccountsArray;
+    let dropdown = $(".dropdown");
+    
+    let num = 0; 
+    
+    
+    //if name is capitalized, solution; turn everything into lowercase
+    //console.log(AllUsersArray)
+    for (i = 0; i < AllUsersArray.length; i++) {
+        
+        let realHolder = AllUsersArray[i].substring(0, $('#search').val().length);
+        realHolder = realHolder.toLowerCase();
+        let dropdownElement = ` <a href="user/${AllUsersArray[i]}"  class="dropdown-element" /a> <p>${AllUsersArray[i]}</p>`;
+           
+        if (realHolder == $('#search').val().toLowerCase()) {
+            dropdown.append(dropdownElement);
+            num++;
+        }
+            
+        if(realHolder == ""){
+            dropdown.empty();
+        }
+      
+        //console.log(num);
+    }
+
+
+})
+}
+
+function signOut() {
+  localStorage.clear();
+  window.location.href = '/login'
 }
