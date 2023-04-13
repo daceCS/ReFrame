@@ -80,6 +80,20 @@ header {
   cursor: pointer;
   padding: 20px auto;
 }
+
+.dropdown-element{
+  position: absolute;
+  left: 25.7%;
+
+  background-color: #071E22;
+  width: 47%;
+  height: 70%;
+  
+}
+.dropdown-element p {
+  color: white;
+}
+
 ::-webkit-scrollbar-track{
     background: hsl(214, 94%, 46%);
   }
