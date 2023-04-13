@@ -113,7 +113,7 @@ function populateFeed() {
             
                                     if (clientLikedPost[i] == postIndex) {
                                         likeButton.val("Unlike");
-                                        $('.button-like').addClass('liked').removeClass('button-like');
+                                        $(likeButton).addClass('liked').removeClass('button-like');
 
             
                                     }
@@ -175,7 +175,7 @@ function populateFeed() {
             
                                     if (clientLikedPost[i] == postIndex) {
                                         likeButton.val("Unlike");
-                                        $('.button-like').addClass('liked').removeClass('button-like');
+                                        $(likeButton).addClass('liked').removeClass('button-like');
             
                                     }
                                 }
@@ -261,7 +261,7 @@ function populateFeed() {
     
                             if (clientLikedPost[i] == postIndex) {
                                 likeButton.val("Unlike");
-                                $('.button-like').addClass('liked').removeClass('button-like');
+                                $(likeButton).addClass('liked').removeClass('button-like');
     
                             }
                         }
@@ -334,7 +334,7 @@ function populateFeed() {
 
                         if (clientLikedPost[i] == postIndex) {
                             likeButton.val("Unlike");
-                            $('.button-like').addClass('liked').removeClass('button-like');
+                            $(likeButton).addClass('liked').removeClass('button-like');
                             
 
                         }
@@ -404,7 +404,7 @@ function likePost(postIdRoot) {
         number++;
 
         element.html("Likes: " + number)
-        $('.button-like').addClass('liked').removeClass('button-like');
+        $(button).addClass('liked').removeClass('button-like');
 
 
     } else if (button.val() == "Unlike") {
@@ -419,7 +419,7 @@ function likePost(postIdRoot) {
         number--;
 
         element.html("Likes: " + number)
-        $('.liked').addClass('button-like').removeClass('liked');
+        $(button).addClass('button-like').removeClass('liked');
 
         // create some update to indexg2.js with sockets
     }
