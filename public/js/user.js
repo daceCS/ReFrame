@@ -3,6 +3,7 @@
 const socket = io();
 let i;
 let switchFunction = 0;
+let bio; 
 
 
 $(document).ready(()=>{
@@ -68,7 +69,7 @@ $(document).ready(()=>{
 
       banner.append(`<input type="button" onclick="changeBanner()" value="Change Banner" id="banner-button">`);
       banner.append(`<input type="button" onclick="ChangeIcon"()" value="Change Profile Icon" id="icon-button">`);
-      bio.html(` <textarea name="text input" id="text-input" cols="32" rows="6">${bioVal}</textarea>`);
+      bio.html(` <textarea name="text input" id="bio-input" cols="32" rows="6" oninput="ChangeBio()">${bioVal}</textarea>`);
       userInfo.append(`<input type="button" onclick="saveChanges()" value="Save Changes" id="save-button">`)
     }
     
@@ -102,13 +103,16 @@ $(document).ready(()=>{
 });
 
 function changeBanner(){
-
+  $('#files').click();
 }
 function ChangeIcon(){
 
 }
+function changeBio(){
+  bio = $("bio-input").val();
+}
 function saveChanges(){
-
+  
 }
 
  function change() { 
