@@ -2,19 +2,21 @@ Things I need to finish for ReFrame
 
 IN PROGRESS --------------------
 
-- ability to search for other profiles with search bar: L 50% done
-
-
-NEEDS TO BE DONE -------------------------
-
 - abiltiy to edit personal profile: M
 	- Change Bio: S DONE
 	- Change Banner Image: S
 	- Change Profile Icon: S
+	
+- Fix to the user page follow increment
+
+NEEDS TO BE DONE -------------------------
+
+
+
 
 
 ISSUES -----------------------------------
-- like button bug
+
 
 
 
