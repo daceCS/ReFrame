@@ -51,6 +51,12 @@ io.on('connection', socket => {
         router.db.unlikePost(reqObj.clientIndex, reqObj.postId)
 
     });
+    socket.on('update-user-data', (reqObj) =>{
+        let username = reqObj.username;
+        let bio = reqObj.bio;
+
+        router.db.updateProfileData(username, bio);
+    })
 })
 
 function generatePostId(){
