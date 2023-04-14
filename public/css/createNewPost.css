@@ -120,10 +120,21 @@ body {
   right: 4%;
 }
 
+#createButton:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
 #createButton:hover{
   background-color: #071E22;
   border: 2px solid #1D7874;
+  transform: translateY(-2px);
 }
+
+#createButton:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
 
 input[type="file"]{
   color: transparent;
@@ -180,6 +191,22 @@ form {
   background-color: #1D7874;
 
 }
+
+#upload-image:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+#upload-image:hover {
+  background-color: #071E22;
+  border: 2px solid #1D7874;
+  transform: translateY(-2px);
+}
+
+#upload-image:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
 #uploader{
   width: 100%;
   height: 100%;
