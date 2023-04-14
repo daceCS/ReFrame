@@ -540,20 +540,55 @@ left: 60%;
     border-radius: 5px;   
 }
 #Follow-User {
-    z-index: 3;
-    position:absolute;
-    top: 5%;
-    right: 20%;
-    font-weight: initial;
-    width: 80px;
+    position: absolute;
+    top: 0px;
+    left: -165px;
+    margin-top: 5px;
+    margin-left: 210px;
+    font-family: "Summer Beach", 'sans-serif';
+    text-align: center;
+    display:flex;
+    scale:1.3;
+    appearance: none;
+    background-color: #FCFCFD;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
     height: 20px;
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
-    font-family: 'Courier New', Courier, monospace;
-    border: 2px solid #ffffff;
-    background-color: #1D7874;
-     
+    font-weight:bold;
+    scale:.9; 
 }
+
+
+#Follow-User:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+#Follow-User:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#Follow-User:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
 a:hover{
   color: #e47418;
 }
@@ -606,23 +641,152 @@ transform: scale(.9);
 opacity: .75;
 }
 #save-button{
-  position: absolute; 
-  bottom: 5%;
-  right: 33%;
-  width: 34%;
-  height: 6%;
-}
-#banner-button{
   position: absolute;
-  top: 0;
-  right: 0;
-}
-#icon-button{
-  position: absolute;
-  top: 10%;
-  right: 0;
+  top: 340px;
+  left: -110px;
+  margin-top: 5px;
+  margin-left: 210px;
+  font-family: "Summer Beach", 'sans-serif';
+  text-align: center;
+  display:flex;
+  scale:1.3;
+  appearance: none;
+  background-color: #FCFCFD;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  height: 20px;
+  font-weight:bold;
+  scale:.9;
 }
 
+#save-button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+#save-button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#save-button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+#banner-button{
+position: absolute;
+top: 10px;
+left: -5px;
+margin-top: 5px;
+margin-left: 210px;
+font-family: "Summer Beach", 'sans-serif';
+text-align: center;
+display:flex;
+scale:1.3;
+appearance: none;
+background-color: #FCFCFD;
+box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+box-sizing: border-box;
+color: #36395A;
+cursor: pointer;
+display: inline-flex;
+font-family: "JetBrains Mono",monospace;
+justify-content: center;
+line-height: 1;
+list-style: none;
+overflow: hidden;
+text-align: left;
+text-decoration: none;
+transition: box-shadow .15s,transform .15s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+will-change: box-shadow,transform;
+height: 20px;
+font-weight:bold;
+scale:.9;
+}
+
+#banner-button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+#banner-button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#banner-button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+#icon-button{
+position: absolute;
+top: 50px;
+left: -47px;
+margin-top: 5px;
+margin-left: 210px;
+font-family: "Summer Beach", 'sans-serif';
+text-align: center;
+display:flex;
+scale:1.3;
+appearance: none;
+background-color: #FCFCFD;
+box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+box-sizing: border-box;
+color: #36395A;
+cursor: pointer;
+display: inline-flex;
+font-family: "JetBrains Mono",monospace;
+justify-content: center;
+line-height: 1;
+list-style: none;
+overflow: hidden;
+text-align: left;
+text-decoration: none;
+transition: box-shadow .15s,transform .15s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+will-change: box-shadow,transform;
+height: 20px;
+font-weight:bold;
+scale:.9;
+}
+
+#icon-button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+#icon-button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#icon-button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
 
 .button-like {
   position: relative;
