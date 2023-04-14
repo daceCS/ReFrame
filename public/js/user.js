@@ -129,6 +129,7 @@ function saveChanges(){
         $.get('/get-current-users', {username: userPage}, (data)=>{
           console.log(data.accountIndex);
           socket.emit('remove-follower',{account:data.accountIndex, clientIndex: currentUserIndex});
+          
           location.reload();
           
           
@@ -569,7 +570,7 @@ function searchBar(){
         
         
         let dropdownElement = `<li>
-        <a href="user/${AllUsersArray[i]}"  class="dropdown-element" /a> <p>${AllUsersArray[i]}</p>
+        <a href="${AllUsersArray[i]}"  class="dropdown-element" /a> <p>${AllUsersArray[i]}</p>
       </li>`;
 
         
