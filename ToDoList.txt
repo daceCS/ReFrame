@@ -8,7 +8,7 @@ IN PROGRESS --------------------
 NEEDS TO BE DONE -------------------------
 
 - abiltiy to edit personal profile: M
-	- Change Bio: S
+	- Change Bio: S DONE
 	- Change Banner Image: S
 	- Change Profile Icon: S
 
