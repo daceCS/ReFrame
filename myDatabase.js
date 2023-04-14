@@ -145,6 +145,13 @@ myDatabase.prototype.updateUserPost = function(username){
   }
   return userPosts;
 }
+myDatabase.prototype.updateProfileData = function(username, bio){
+  for(i = 0; i<this.accounts.length; i++){
+    if(username == this.accounts[i].username){
+      this.accounts[i].bio = bio;
+    }
+  }
+}
 myDatabase.prototype.getSortedPosts = function(array) {
 
 
