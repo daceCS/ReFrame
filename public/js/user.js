@@ -68,7 +68,7 @@ $(document).ready(()=>{
 
       banner.append(`<input type="button" onclick="changeBanner()" value="Change Banner" id="banner-button">`);
       banner.append(`<input type="button" onclick="ChangeIcon"()" value="Change Profile Icon" id="icon-button">`);
-      bio.html(` <textarea name="text input" id="bio-input" cols="32" rows="6" oninput="ChangeBio()">${bioVal}</textarea>`);
+      bio.html(` <textarea name="text input" id="bio-input" cols="32" rows="6" oninput="changeBio()">${bioVal}</textarea>`);
       userInfo.append(`<input type="button" onclick="saveChanges()" value="Save Changes" id="save-button">`)
     }
     
@@ -108,10 +108,14 @@ function ChangeIcon(){
 
 }
 function changeBio(){
-  bio = $("bio-input").val();
+  bio = $("#bio-input").val();
+  console.log(bio);
 }
 function saveChanges(){
-  
+  let pathname = window.location.pathname;
+  let paths = pathname.split('/');
+  let userPage = paths[2];
+  socket.emit('update-user-data', {username: userPage, bio: bio});
 }
 
  function change() { 
@@ -595,3 +599,46 @@ function signOut() {
   localStorage.clear();
   window.location.href = '/login'
 }
+
+
+/**
+ * 
+ * function img() {
+    let data = new FormData($("#fileupload")[0]);
+  
+    $.ajax({
+      url: '/fileupload',
+      type: 'POST',
+      data: data,
+      processData: false, // These two are needed to prevent JQuery from processing the form data
+      contentType: false,
+      mimeType: 'multipart/form-data',
+      dataType: 'json', // Without this, the server's response will be a string instead of a JSON object
+      success: uploadSuccess
+    });
+  }
+  
+  // !!! dont touch this (I have no idea how this works)
+  function uploadSuccess(data) {
+    
+    let index = data.name.indexOf(".");
+    if (index >= 0) {
+      let ext = data.name.substring(index + 1);
+      if (ext == "txt") {
+        $('#text').load("images/" + data.name);
+        tempMem = data.name;
+        display.src = "";
+      }
+      else if (ext == "jpg" || ext == "png") {
+        $('#text').html("Hello");
+        lastImageName = data.name;
+        lastImage = "images/" + data.name;
+        let appendingData = `<img src="${lastImage}" alt="" height="200px" width="200px" id="preview-data">`
+        $("#preview-data").remove();
+        $("#image-div").append(appendingData);
+       
+        return;
+      }
+    }
+  }
+ */
