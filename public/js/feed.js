@@ -435,6 +435,7 @@ $(document).ready(() => {
     if (num == null) {
         let loginElement = `<a href="/login" id="profile-link">Profile</a>`;
         let menu = $('.menu');
+        window.location.href = '/create-account';
         menu.append(loginElement);
     }
 
