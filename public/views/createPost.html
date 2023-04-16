@@ -9,65 +9,59 @@
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src='/socket.io/socket.io.js'></script>
     <script src="../js/createPost.js">
-
-      function gfg_Run() {
-                  $('input').addClass('removeValue');
-                  el_down.innerHTML = "Value has been removed.";
-              }
-      </script>
+        function gfg_Run() {
+                      $('input').addClass('removeValue');
+                      el_down.innerHTML = "Value has been removed.";
+                  }
+    </script>
 
     <link rel="stylesheet" href="../css/createNewPost.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon4.png">
 </head>
 
-<body> 
-  <header>
-    <nav>
-      <input type="button" value="Sign Out" id="sign-out" onclick="signOut()">
-      <form action = "" class = "search-bar">
-        <input type="text" id="search" placeholder="Search Users" name ="SearchStuff" autocomplete="off" oninput="searchBar()">
-        <button type = "submit" id = "searchbutton"><img src = "../images/search.png"></button>
-    </form>
-    <div class="dropdown">
-      <ul id = "dropdown-list">
-              
-       </ul>
-    </div>
-    </nav>
-  </header>
-  <aside>
-    <div class="menu-div">
-      <nav class="menu">
-        <a href="/feed" id="home-link">Home</a>
-        <a href="/createPost" id="new-post-link">Create Post</a>
-      </nav>
-    </div>
-  </aside>
+<body>
+    <header>
+        <nav>
+            <input type="button" value="Sign Out" id="sign-out" onclick="signOut()">
+            <form action="" class="search-bar">
+                <input type="text" id="search" placeholder="Search Users" name="SearchStuff" autocomplete="off" oninput="searchBar()">
+                <button type="submit" id="searchbutton"><img src = "../images/search.png"></button>
+            </form>
+            <div class="dropdown">
+                <ul id="dropdown-list">
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <aside>
+        <div class="menu-div">
+            <nav class="menu">
+                <a href="/feed" id="home-link">Home</a>
+                <a href="/createPost" id="new-post-link">Create Post</a>
+            </nav>
+        </div>
+    </aside>
     <form id="fileupload">
         <div>
-          <h3>Create a post</h3>
-          <div class="upload-options">
-            <input type="button" value="Upload Photo" id="btn1" onclick="switchToUploadPhoto()">
-            <input type="button" value="Upload Text" id="btn2" onclick="switchToUploadText()">
-          </div>
-          
-          <div id="main-post-content">
+            <h3>Create a post</h3>
+            <div class="upload-options">
+                <input type="button" value="Upload Photo" id="btn1" onclick="switchToUploadPhoto()">
+                <input type="button" value="Upload Text" id="btn2" onclick="switchToUploadText()">
+            </div>
+
+            <div id="main-post-content">
                 <input id="caption" type="text" name="caption" oninput="changePreviewCaption()" maxlength="50" placeholder="Title" style="font-family: Garamond;">
                 <div id="image-div">
-                  <input id="uploader" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />
-                  <input type="button" name="" id="upload-image" value="Upload Image" onclick="uploadFile()">
+                    <input id="uploader" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />
+                    <input type="button" name="" id="upload-image" value="Upload Image" onclick="uploadFile()">
                 </div>
-                
-                <input id="createButton" type="button" value="Post" />
-          </div>
-        </div> 
-        
-    </form>
-  
-    
-   
 
-    
+                <input id="createButton" type="button" value="Post" />
+            </div>
+        </div>
+
+    </form>
 
 </body>
 

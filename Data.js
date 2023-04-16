@@ -1,5 +1,5 @@
 let Data = function(caption, postData, inputType, postedBy, postId) {
-    
+
     this.caption = caption;
     this.postData = postData;
     this.votes = 0;

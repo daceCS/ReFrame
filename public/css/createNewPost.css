@@ -3,15 +3,13 @@
   margin: 0;
 }
 body {
-    background-color: #E2D8A5;
+  background-color: #E2D8A5;
 }
-
 #caption{
-    
-    width:97%;
-    height: 30px;
-    font-size: medium;
-    font-family: 'Courier New', Courier, monospace;
+  width:97%;
+  height: 30px;
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
 }
 #btn1{
   padding: 0%;
@@ -19,16 +17,14 @@ body {
   width: 325px;
   height: 40px;
 }
-
 #search{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family: "Summer Beach", 'sans-serif';
-  
 }
 .search-bar{
-  width:100%; 
+  width:100%;
   max-width: 900px;
   background: (rgba(51, 10, 201, 0.2));
   display: flex;
@@ -64,11 +60,9 @@ body {
   cursor: pointer;
   padding: 20px auto;
 }
-
 .dropdown-element{
   position: absolute;
   left: 25.7%;
-
   background-color: #071E22;
   width: 47%;
   height: 100%;
@@ -97,11 +91,10 @@ body {
 .dropdown-element p {
   color: white;
 }
-
 #btn2{
   position: absolute;
   left: 50%;
-  padding: 0%;  
+  padding: 0%;
   margin: 0%;
   width: 325px;
   height: 40px;
@@ -119,23 +112,18 @@ body {
   bottom: 4%;
   right: 4%;
 }
-
 #createButton:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
-
 #createButton:hover{
   background-color: #071E22;
   border: 2px solid #1D7874;
   transform: translateY(-2px);
 }
-
 #createButton:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
-
-
 input[type="file"]{
   color: transparent;
 }
@@ -152,7 +140,6 @@ form {
   border-color:#000000;
   border-radius: 2px;
   border: 2px solid #071E22;
-  
 }
 #image-div{
   position: absolute;
@@ -179,7 +166,6 @@ form {
   border: 2px solid #071E22;
   padding: 0%;
 }
-
 #upload-image{
   font-weight: initial;
   width: 110px;
@@ -189,43 +175,34 @@ form {
   font-family: 'Courier New', Courier, monospace;
   border: 2px solid #071E22;
   background-color: #1D7874;
-
 }
-
 #upload-image:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
-
 #upload-image:hover {
   background-color: #071E22;
   border: 2px solid #1D7874;
   transform: translateY(-2px);
 }
-
 #upload-image:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
-
 #uploader{
   width: 100%;
   height: 100%;
 }
-
 #upload-image:hover {
   background-color: #071E22;
   border: 2px solid #1D7874;
-  
 }
 #text-input{
   border-style: none;
   font-family: 'Courier New', Courier, monospace;
   width: 100%;
   height: 100%;
-
   max-width: 100%;
   max-height: 100%;
-
   min-width: 80%;
   min-height: 80%;
 }
@@ -276,33 +253,29 @@ form {
 }
 /* comit to dev-main*/
 #post-preview {
-    display: grid;
-    place-items:center;
-    background-color: #679289;
-    width: 500px;
-    max-height: 650px;
-    margin: 30px auto;
-    overflow-x: hidden;
-    font-family: Garamond;
-    font-size: large;
+  display: grid;
+  place-items:center;
+  background-color: #679289;
+  width: 500px;
+  max-height: 650px;
+  margin: 30px auto;
+  overflow-x: hidden;
+  font-family: Garamond;
+  font-size: large;
 }
-fieldset
-{
+fieldset {
   background-color:#dbd7dd;
   max-width:100%;
-  padding:60px;	
+  padding:60px;
   border-style: inset ;
   border-color:#1D7874;
   border-width:10px;
-
 }
-.legend1
-{
+.legend1 {
   margin-bottom:0px;
   margin-left:16px;
 }
 header {
-   
   background-color:#46666e;
   height: 50px;
   position: fixed;
@@ -320,23 +293,20 @@ header {
   top: 0;
   border: 2px solid #071E22;
 }
-
 #topBox{
   background-color:#dbd7dd;
   max-width:100%;
-  padding:10px;	
+  padding:10px;
   border-style: inset ;
   border-width: 10px;
   border-color:#1D7874;
 }
-
 legend {
   color: #000000;
   font-size: larger;
   font-family: Garamond;
   padding: 3px 6px;
 }
-
 input {
   margin: 0.4rem;
 }
@@ -345,13 +315,10 @@ input {
   font-size: larger;
   font-family: Garamond;
   font-size: 36px;
-	line-height: 36px;
-	text-transform: uppercase;
+  line-height: 36px;
+  text-transform: uppercase;
   text-align: center;
-	
 }
-
-
 #sign-out {
   align-items: center;
   background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
@@ -382,19 +349,16 @@ input {
   touch-action: manipulation;
   box-shadow: 0 4px white;
 }
-
 #sign-out:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
 #sign-out span {
-transition: all 200ms;
-line-height: 50px;
+  transition: all 200ms;
+  line-height: 50px;
 }
-
 #sign-out:hover span {
-transform: scale(.9);
-opacity: .75;
+  transform: scale(.9);
+  opacity: .75;
 }

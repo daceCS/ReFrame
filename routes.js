@@ -32,22 +32,22 @@ router.get("/createPost", function(req, res) {
 router.get("/feed", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/public/views/feed.html"));
 })
-router.get('/user/:identifier', (req, res)=>{
-    let username = req.params.identifier.trim();
+router.get('/user/:identifier', (req, res) => {
+        let username = req.params.identifier.trim();
 
-    let accounts = db.getData(1);
+        let accounts = db.getData(1);
 
-    for(i = 0; i<accounts.length; i++){
-        if(accounts[i].username == username){
-            res.sendFile(path.join(__dirname, "/public/views/user.html"));
-            return;
-            
+        for (i = 0; i < accounts.length; i++) {
+            if (accounts[i].username == username) {
+                res.sendFile(path.join(__dirname, "/public/views/user.html"));
+                return;
+
+            }
+
         }
-        
-    }
-    res.send("no user")
-})
-// handles file uploads
+        res.send("no user")
+    })
+    // handles file uploads
 router.post('/fileupload', function(req, res) {
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
@@ -55,11 +55,11 @@ router.post('/fileupload', function(req, res) {
         var newpath = __dirname + '/public/images/' + files.image.name;
         lastImg = files.image.name;
         console.log(files.image.name)
-       
 
-        
+
+
         mv(oldpath, newpath, function(err) {
-           
+
             //console.log(files.image.name)
             res.json({
                 name: files.image.name
@@ -74,68 +74,84 @@ router.get("/populate-feed", (req, res) => {
         allPost: db.getData(0)
     })
 })
-router.get('/login', (req, res) =>{
+router.get('/login', (req, res) => {
     res.sendFile(path.resolve(__dirname + "/public/views/login.html"));
 })
-router.get('/create-account', (req, res) =>{
+router.get('/create-account', (req, res) => {
     res.sendFile(path.resolve(__dirname + "/public/views/createAccount.html"));
 })
-router.get('/get-current-users', (req, res) =>{
-    
+router.get('/get-current-users', (req, res) => {
+
     let accounts = db.getData(1); // getData pass in 1 for accounts
- 
-    for(i = 0; i<accounts.length; i++){
-        if(req.query.username == accounts[i].username){
+
+    for (i = 0; i < accounts.length; i++) {
+        if (req.query.username.toLocaleLowerCase() == accounts[i].username.toLocaleLowerCase()) {
             accounts[i].posts = db.updateUserPost(accounts[i].username);
-            res.json({userExist: true, account: accounts[i], accountIndex: i})
+            res.json({
+                userExist: true,
+                account: accounts[i],
+                accountIndex: i
+            })
             return;
         }
     }
-    res.json({userExist: false});
+    res.json({
+        userExist: false
+    });
 })
-router.get('/get-user', (req, res) =>{
+router.get('/get-user', (req, res) => {
     let user = db.getUser(req.query.userIndex);
-    res.json({userAccount: user});
+    res.json({
+        userAccount: user
+    });
 })
-router.get('/get-all-users', (req, res) =>{
+router.get('/get-all-users', (req, res) => {
     let user = db.getData(1);
     let usernames = [];
-    for(i = 0; i<user.length; i++){
-    usernames[i] = user[i].username;
+    for (i = 0; i < user.length; i++) {
+        usernames[i] = user[i].username;
     }
-    res.json({allAccountsArray: usernames});
+    res.json({
+        allAccountsArray: usernames
+    });
 })
-router.get('/get-post-from-id', (req, res)=>{
+router.get('/get-post-from-id', (req, res) => {
     let postId = req.query.postId;
     let allPost = db.getData(0);
 
-    for(i = 0; i<allPost.length; i++){
-        if(postId == allPost[i].postId){
-            res.json({post: allPost[i]});
+    for (i = 0; i < allPost.length; i++) {
+        if (postId == allPost[i].postId) {
+            res.json({
+                post: allPost[i]
+            });
         }
     }
 })
 
-router.get('/get-sorted-posts', (req, res) =>{
-    posts = req.query.allPosts; 
+router.get('/get-sorted-posts', (req, res) => {
+    posts = req.query.allPosts;
     sortedPosts = db.getSortedPosts(posts);
-    res.json({sortedPosts: sortedPosts});
+    res.json({
+        sortedPosts: sortedPosts
+    });
 })
 
-router.post('/handle-new-account', (req, res)=>{
+router.post('/handle-new-account', (req, res) => {
 
     let username = req.body.username;
     let password = req.body.password;
     let accObj = new Account(username, password)
     let val = db.initAccount(accObj);
     //console.log(accObj +"handle new user");
-    
-    res.json({userServerIndex: val});
+
+    res.json({
+        userServerIndex: val
+    });
 
 })
 
-router.put('/updateFollowCount', (req, res) =>{
-    
+router.put('/updateFollowCount', (req, res) => {
+
 })
 
 

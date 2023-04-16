@@ -133,25 +133,25 @@ myDatabase.prototype.deleteData = function(ident) {
   }
   return null;
 }
-myDatabase.prototype.updateUserPost = function(username){
+myDatabase.prototype.updateUserPost = function(username) {
   let posts = this.data;
   let userPosts = [];
   let index = 0;
-  for(let i = 0; i<posts.length; i++){
-    if(posts[i].postedBy.username == username){
-      userPosts[index] = posts[i];
-      index++;
-    }
+  for (let i = 0; i < posts.length; i++) {
+      if (posts[i].postedBy.username == username) {
+          userPosts[index] = posts[i];
+          index++;
+      }
   }
   return userPosts;
 }
-myDatabase.prototype.updateProfileData = function(username, bio, banner, pfp){
-  for(i = 0; i<this.accounts.length; i++){
-    if(username == this.accounts[i].username){
-      this.accounts[i].bio = bio;
-      this.accounts[i].bannerImage = banner;
-      this.accounts[i].profileIcon = pfp;
-    }
+myDatabase.prototype.updateProfileData = function(username, bio, banner, pfp) {
+  for (i = 0; i < this.accounts.length; i++) {
+      if (username == this.accounts[i].username) {
+          this.accounts[i].bio = bio;
+          this.accounts[i].bannerImage = banner;
+          this.accounts[i].profileIcon = pfp;
+      }
   }
 }
 myDatabase.prototype.getSortedPosts = function(array) {

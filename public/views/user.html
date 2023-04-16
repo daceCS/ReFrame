@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style type="text/css">
     </style>
-
 
     <title>Document</title>
     <link rel="stylesheet" href="../css/user.css">
@@ -17,56 +17,55 @@
     <script src="../js/user.js"></script>
 
 </head>
+
 <body>
     <header>
         <nav>
-          <input type="button" value="Sign Out" id="sign-out" onclick="signOut()">
-          <form action = "" class = "search-bar">
-            <input type="text" id="search" placeholder="Search Users" name ="SearchStuff" autocomplete="off" oninput="searchBar()">
-            <button type = "submit" id = "searchbutton"><img src = "../images/search.png"></button>
-        </form>
+            <input type="button" value="Sign Out" id="sign-out" onclick="signOut()">
+            <form action="" class="search-bar">
+                <input type="text" id="search" placeholder="Search Users" name="SearchStuff" autocomplete="off" oninput="searchBar()">
+                <button type="submit" id="searchbutton"><img src = "../images/search.png"></button>
+            </form>
             <div class="dropdown">
-          <ul id = "dropdown-list">
-              
-          </ul>
-        </div>
+                <ul id="dropdown-list">
+
+                </ul>
+            </div>
         </nav>
-      </header>
-      <aside>
+    </header>
+    <aside>
         <div class="menu-div">
-          <nav class="menu">
-            <a href="/feed" id="home-link">Home</a>
-            <a href="/createPost" id="new-post-link">Create Post</a>
-          </nav>
+            <nav class="menu">
+                <a href="/feed" id="home-link">Home</a>
+                <a href="/createPost" id="new-post-link">Create Post</a>
+            </nav>
         </div>
-      </aside>
-      
-      <div id="content-options">
+    </aside>
+
+    <div id="content-options">
         <p id="sort-title">Sort By:</p>
-        
+
         <input type="button" id="sort-top-voted" value="Most Liked" onclick="sortLiked()">
-        <input type="button" id="sort-new" value=" Sort New" onclick = "sortNew()">
-        <input type="button" id="sort-old" value="Sort Oldest" onclick = "sortOld()">
-      </div>
+        <input type="button" id="sort-new" value=" Sort New" onclick="sortNew()">
+        <input type="button" id="sort-old" value="Sort Oldest" onclick="sortOld()">
+    </div>
 
-      <div id="user-options">
+    <div id="user-options">
         <p id="sort-user-options"></p>
-        <input type="button" id="Follow-User" value="Follow" onclick = "change()">
-      </div>
-      <form id="fileupload">
+        <input type="button" id="Follow-User" value="Follow" onclick="change()">
+    </div>
+    <form id="fileupload">
         <input id="banner-upload" type="file" name="image" onchange="img1()" hidden accept="image/png, image/jpeg" />
-      </form>
-      <form id="fileupload2">
+    </form>
+    <form id="fileupload2">
         <input id="pfp-uploads" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />
-      </form>
-      
-      <img src="/images/Palm4.png" class = "Palm">
-    <img src="/images/Seagull.png" class = "Seagull">
+    </form>
 
-     
+    <img src="/images/Palm4.png" class="Palm">
+    <img src="/images/Seagull.png" class="Seagull">
 
-      <div class="feed" id="feed"></div>
+    <div class="feed" id="feed"></div>
 
-      
 </body>
+
 </html>

@@ -19,39 +19,39 @@ const io = require('socket.io')(http);
 // create a new connection with socket.io
 io.on('connection', socket => {
     socket.on('upload-post', (upObj) => {
-       postId = generatePostId();
+        postId = generatePostId();
         let obj = new Data(upObj.caption, upObj.postData, upObj.inputType, upObj.userAccount, postId);
         let val = router.db.postData(obj);
         router.db.updateData(upObj.userIndex, obj);
         postId++;
         io.emit('post-to-feed');
     })
-    socket.on('like-post', (postObj) =>{
-        
+    socket.on('like-post', (postObj) => {
+
     })
-    socket.on('add-follower',(postObj)=>{
+    socket.on('add-follower', (postObj) => {
         let account = postObj.account;
         let client = postObj.clientIndex;
         //console.log("client: " + client);
         router.db.updateFollower(account, client);
 
     })
-    socket.on('remove-follower',(postObj)=>{
+    socket.on('remove-follower', (postObj) => {
         let account = postObj.account;
         let client = postObj.clientIndex;
         router.db.removeFollower(account, client);
 
     })
 
-    socket.on('like-post', (reqObj) =>{
+    socket.on('like-post', (reqObj) => {
         router.db.likePost(reqObj.clientIndex, reqObj.postId)
     });
 
-    socket.on('unlike-post', (reqObj) =>{
+    socket.on('unlike-post', (reqObj) => {
         router.db.unlikePost(reqObj.clientIndex, reqObj.postId)
 
     });
-    socket.on('update-user-data', (reqObj) =>{
+    socket.on('update-user-data', (reqObj) => {
         let username = reqObj.username;
         let bio = reqObj.bio;
         let banner = reqObj.banner;
@@ -61,25 +61,26 @@ io.on('connection', socket => {
     })
 })
 
-function generatePostId(){
+function generatePostId() {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
     let counter = 0;
     while (counter < 5) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        counter += 1;
     }
-    if(checkIds() == false){
+    if (checkIds() == false) {
         generatePostId();
     }
     return result;
 }
-function checkIds(newPostId){
+
+function checkIds(newPostId) {
     let allPost = router.db.getData(0);
 
-    for(i = 0; i<allPost.length; i++){
-        if(allPost[i].postId == newPostId){
+    for (i = 0; i < allPost.length; i++) {
+        if (allPost[i].postId == newPostId) {
             return false;
         }
     }
