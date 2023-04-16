@@ -53,8 +53,13 @@
         <p id="sort-user-options"></p>
         <input type="button" id="Follow-User" value="Follow" onclick = "change()">
       </div>
-      <input id="banner-upload" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />
-      <input id="pfp-upload" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />
+      <form id="fileupload">
+        <input id="banner-upload" type="file" name="image" onchange="img1()" hidden accept="image/png, image/jpeg" />
+      </form>
+      <form id="fileupload2">
+        <input id="pfp-uploads" type="file" name="image" onchange="img()" hidden accept="image/png, image/jpeg" />
+      </form>
+      
       <img src="/images/Palm4.png" class = "Palm">
     <img src="/images/Seagull.png" class = "Seagull">
 

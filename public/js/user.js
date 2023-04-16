@@ -4,6 +4,7 @@ const socket = io();
 let i;
 let switchFunction = 0;
 let bio; 
+let test = false;
 
 $(document).ready(()=>{
   let userPageObj;
@@ -31,10 +32,10 @@ $(document).ready(()=>{
       $('title').html(userPageUsername);
       let userCard = `<div class="user-info">
       <div class="banner-class">
-      <img class="banner" src="${userBannerImg}">
+      <img class="banner" id="banner" src="${userBannerImg}">
       </div>
       <div class="profileIcon-class">
-      <img class="profileIcon" src="${userProfileIcon}">
+      <img class="profileIcon" id="pfp" src="${userProfileIcon}">
       </div>
       <p id="username">${userPageUsername}</p>
       <p id="follow-count">Followers: ${userPageFollowCount}</p>
@@ -67,7 +68,7 @@ $(document).ready(()=>{
 
 
       banner.append(`<input type="button" onclick="changeBanner()" value="Change Banner" id="banner-button">`);
-      banner.append(`<input type="button" onclick="ChangeIcon"()" value="Change Profile Icon" id="icon-button">`);
+      banner.append(`<input type="button" onclick="ChangeIcon()" value="Change Profile Icon" id="icon-button">`);
       bio.html(` <textarea name="text input" id="bio-input" cols="32" rows="6" oninput="changeBio()">${bioVal}</textarea>`);
       userInfo.append(`<input type="button" onclick="saveChanges()" value="Save Changes" id="save-button">`)
     }
@@ -102,12 +103,13 @@ $(document).ready(()=>{
 });
 
 function changeBanner(){
-  $('#files').click();
+  $('#banner-upload').click();
 }
 function ChangeIcon(){
-
+  $('#pfp-uploads').click();
 }
 function changeBio(){
+  test = true;
   bio = $("#bio-input").val();
   console.log(bio);
 }
@@ -115,7 +117,13 @@ function saveChanges(){
   let pathname = window.location.pathname;
   let paths = pathname.split('/');
   let userPage = paths[2];
-  socket.emit('update-user-data', {username: userPage, bio: bio});
+  let banner = $('#banner').attr("src");
+  let pfp = $("#pfp").attr('src')
+  if(test == false){
+    bio = $('#bio').text()
+  }
+  console.log(banner)
+  socket.emit('update-user-data', {username: userPage, bio: bio, banner: banner, pfp: pfp});
 }
 
  function change() { 
@@ -601,11 +609,53 @@ function signOut() {
 }
 
 
-/**
- * 
- * function img() {
+ function img1() {
     let data = new FormData($("#fileupload")[0]);
+    
+    $.ajax({
+      url: '/fileupload',
+      type: 'POST',
+      data: data,
+      processData: false, // These two are needed to prevent JQuery from processing the form data
+      contentType: false,
+      mimeType: 'multipart/form-data',
+      dataType: 'json', // Without this, the server's response will be a string instead of a JSON object
+      success: uploadSuccess1
+    });
+    
+  }
   
+  // !!! dont touch this (I have no idea how this works)
+  function uploadSuccess1(data) {
+    
+    let index = data.name.indexOf(".");
+    
+    if (index >= 0) {
+      let ext = data.name.substring(index + 1);
+   
+      
+      if (ext == "jpg" || ext == "png") {
+        
+        lastImageName = data.name;
+        lastImage = "../images/" + data.name;
+        //let appendingData = `<img class="banner" id="banner" src="${lastImage}">`
+        console.log(lastImage)
+        $("#banner").attr("src",lastImage);
+        console.log($("#banner"))
+        
+       
+        return;
+      }
+    }
+    else{
+      alert("Image Error, try another image")
+    }
+  }
+ 
+
+  function img() {
+    let data = new FormData($("#fileupload2")[0]);
+    
     $.ajax({
       url: '/fileupload',
       type: 'POST',
@@ -616,29 +666,32 @@ function signOut() {
       dataType: 'json', // Without this, the server's response will be a string instead of a JSON object
       success: uploadSuccess
     });
+    
   }
   
   // !!! dont touch this (I have no idea how this works)
   function uploadSuccess(data) {
     
     let index = data.name.indexOf(".");
+    
     if (index >= 0) {
       let ext = data.name.substring(index + 1);
-      if (ext == "txt") {
-        $('#text').load("images/" + data.name);
-        tempMem = data.name;
-        display.src = "";
-      }
-      else if (ext == "jpg" || ext == "png") {
-        $('#text').html("Hello");
+   
+      
+      if (ext == "jpg" || ext == "png") {
+        
         lastImageName = data.name;
-        lastImage = "images/" + data.name;
-        let appendingData = `<img src="${lastImage}" alt="" height="200px" width="200px" id="preview-data">`
-        $("#preview-data").remove();
-        $("#image-div").append(appendingData);
+        lastImage = "../images/" + data.name;
+        //let appendingData = `<img class="banner" id="banner" src="${lastImage}">`
+        console.log(lastImage)
+        $("#pfp").attr("src",lastImage);
+        console.log($("#pfp"))
+        
        
         return;
       }
     }
+    else{
+      alert("Image Error, try another image")
+    }
   }
- */

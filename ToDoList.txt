@@ -1,11 +1,6 @@
 Things I need to finish for ReFrame
 
 IN PROGRESS --------------------
-
-- abiltiy to edit personal profile: M
-	- Change Bio: S DONE
-	- Change Banner Image: S
-	- Change Profile Icon: S
 	
 - Fix to the user page follow increment
 

@@ -145,10 +145,12 @@ myDatabase.prototype.updateUserPost = function(username){
   }
   return userPosts;
 }
-myDatabase.prototype.updateProfileData = function(username, bio){
+myDatabase.prototype.updateProfileData = function(username, bio, banner, pfp){
   for(i = 0; i<this.accounts.length; i++){
     if(username == this.accounts[i].username){
       this.accounts[i].bio = bio;
+      this.accounts[i].bannerImage = banner;
+      this.accounts[i].profileIcon = pfp;
     }
   }
 }

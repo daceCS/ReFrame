@@ -54,8 +54,10 @@ io.on('connection', socket => {
     socket.on('update-user-data', (reqObj) =>{
         let username = reqObj.username;
         let bio = reqObj.bio;
+        let banner = reqObj.banner;
+        let pfp = reqObj.pfp;
 
-        router.db.updateProfileData(username, bio);
+        router.db.updateProfileData(username, bio, banner, pfp);
     })
 })
 
